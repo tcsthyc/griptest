@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface InputWithIconTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet UITextField *inputTextView;
 
 @end

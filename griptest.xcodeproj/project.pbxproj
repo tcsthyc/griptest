@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32C2200B1AA58B5C00986142 /* SignUpPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C2200A1AA58B5C00986142 /* SignUpPageViewController.m */; };
+		32C2200F1AA5A74100986142 /* InputWithIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C2200D1AA5A74100986142 /* InputWithIconTableViewCell.m */; };
+		32C220101AA5A74100986142 /* InputWithIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32C2200E1AA5A74100986142 /* InputWithIconTableViewCell.xib */; };
+		32C220131AA5B68D00986142 /* CircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C220121AA5B68D00986142 /* CircleImageView.m */; };
 		32DEACC61AA4556A00B4E5F1 /* LoginInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DEACC51AA4556A00B4E5F1 /* LoginInfoTableViewCell.m */; };
 		32DEACC91AA45AEA00B4E5F1 /* SignInPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DEACC81AA45AEA00B4E5F1 /* SignInPageViewController.m */; };
 		3716F3881A5BDB950010A564 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3716F3871A5BDB950010A564 /* main.m */; };
@@ -30,6 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32C220091AA58B5C00986142 /* SignUpPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpPageViewController.h; sourceTree = "<group>"; };
+		32C2200A1AA58B5C00986142 /* SignUpPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpPageViewController.m; sourceTree = "<group>"; };
+		32C2200C1AA5A74100986142 /* InputWithIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputWithIconTableViewCell.h; sourceTree = "<group>"; };
+		32C2200D1AA5A74100986142 /* InputWithIconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputWithIconTableViewCell.m; sourceTree = "<group>"; };
+		32C2200E1AA5A74100986142 /* InputWithIconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputWithIconTableViewCell.xib; sourceTree = "<group>"; };
+		32C220111AA5B67F00986142 /* CircleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleImageView.h; sourceTree = "<group>"; };
+		32C220121AA5B68D00986142 /* CircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageView.m; sourceTree = "<group>"; };
 		32DEACC41AA4556A00B4E5F1 /* LoginInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInfoTableViewCell.h; sourceTree = "<group>"; };
 		32DEACC51AA4556A00B4E5F1 /* LoginInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInfoTableViewCell.m; sourceTree = "<group>"; };
 		32DEACC71AA45AEA00B4E5F1 /* SignInPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInPageViewController.h; sourceTree = "<group>"; };
@@ -73,6 +84,8 @@
 			children = (
 				32DEACC71AA45AEA00B4E5F1 /* SignInPageViewController.h */,
 				32DEACC81AA45AEA00B4E5F1 /* SignInPageViewController.m */,
+				32C220091AA58B5C00986142 /* SignUpPageViewController.h */,
+				32C2200A1AA58B5C00986142 /* SignUpPageViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -82,7 +95,11 @@
 			children = (
 				32DEACC41AA4556A00B4E5F1 /* LoginInfoTableViewCell.h */,
 				32DEACC51AA4556A00B4E5F1 /* LoginInfoTableViewCell.m */,
-				322448B21AA4432900BEEA1E /* ViewControllers */,
+				32C2200C1AA5A74100986142 /* InputWithIconTableViewCell.h */,
+				32C2200D1AA5A74100986142 /* InputWithIconTableViewCell.m */,
+				32C2200E1AA5A74100986142 /* InputWithIconTableViewCell.xib */,
+				32C220111AA5B67F00986142 /* CircleImageView.h */,
+				32C220121AA5B68D00986142 /* CircleImageView.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -108,6 +125,7 @@
 		3716F3841A5BDB950010A564 /* griptest */ = {
 			isa = PBXGroup;
 			children = (
+				322448B21AA4432900BEEA1E /* ViewControllers */,
 				32DEACC31AA4552400B4E5F1 /* CustomViews */,
 				37E327491A6A59AA00D5137B /* Models */,
 				3716F3891A5BDB950010A564 /* AppDelegate.h */,
@@ -239,6 +257,7 @@
 				375086D51A6116550053689B /* GTMainStory.storyboard in Resources */,
 				3716F38D1A5BDB950010A564 /* Images.xcassets in Resources */,
 				37E327801A6A623200D5137B /* Launch Screen.xib in Resources */,
+				32C220101AA5A74100986142 /* InputWithIconTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +280,10 @@
 				3799AC851A67AAC9000C7280 /* GTUserModel.xcdatamodeld in Sources */,
 				32DEACC91AA45AEA00B4E5F1 /* SignInPageViewController.m in Sources */,
 				32DEACC61AA4556A00B4E5F1 /* LoginInfoTableViewCell.m in Sources */,
+				32C2200B1AA58B5C00986142 /* SignUpPageViewController.m in Sources */,
 				3716F3881A5BDB950010A564 /* main.m in Sources */,
+				32C2200F1AA5A74100986142 /* InputWithIconTableViewCell.m in Sources */,
+				32C220131AA5B68D00986142 /* CircleImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

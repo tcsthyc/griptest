@@ -1,18 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="InputWithIconTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inputWithIconCell" rowHeight="40" id="KGk-i7-Jjw" customClass="InputWithIconTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwk-s3-Tb0">
+                        <rect key="frame" x="8" y="7" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="H3I-Lt-kpF"/>
+                            <constraint firstAttribute="width" constant="32" id="yaG-3q-Jw1"/>
+                        </constraints>
+                    </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1rC-HY-Vdp">
+                        <rect key="frame" x="48" y="7" width="264" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="reG-Mn-SxC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                    </textField>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="1rC-HY-Vdp" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="JrK-qS-hkB"/>
+                    <constraint firstAttribute="centerY" secondItem="xwk-s3-Tb0" secondAttribute="centerY" id="MoK-43-Ulc"/>
+                    <constraint firstItem="1rC-HY-Vdp" firstAttribute="top" secondItem="xwk-s3-Tb0" secondAttribute="top" id="OLt-ux-IrU"/>
+                    <constraint firstItem="xwk-s3-Tb0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Sc0-vL-nL2"/>
+                    <constraint firstItem="1rC-HY-Vdp" firstAttribute="leading" secondItem="xwk-s3-Tb0" secondAttribute="trailing" constant="8" symbolic="YES" id="Vjk-6E-AMm"/>
+                    <constraint firstAttribute="centerY" secondItem="1rC-HY-Vdp" secondAttribute="centerY" id="vqQ-TD-Jof"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="OLt-ux-IrU"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="icon" destination="xwk-s3-Tb0" id="R41-C4-Ehg"/>
+                <outlet property="inputTextView" destination="1rC-HY-Vdp" id="8GD-8M-pur"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="153"/>
         </tableViewCell>
     </objects>
 </document>

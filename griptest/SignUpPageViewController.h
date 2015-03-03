@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginInfoTableViewCell.h"
+#import "InputWithIconTableViewCell.h"
 
-@interface SignUpPageViewController : UIViewController
+@interface SignUpPageViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+
+- (IBAction)cancel:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *infoTable;
 
 @end

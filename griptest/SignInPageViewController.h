@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LoginInfoTableViewCell.h"
 #import "User.h"
+
 @interface SignInPageViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @end

@@ -35,9 +35,10 @@
 
 -(void)clipCircle
 {
-    self.bounds=CGRectMake(0, 0, 100, 100);
+    //self.bounds=CGRectMake(0, 0, 100, 100);
     self.layer.masksToBounds = YES;
     //NSLog(@"frame width: %f,  height: %f",CGRectGetWidth(self.frame),CGRectGetHeight(self.frame));
+    //NSLog(@"init");
     //NSLog(@"frame size width: %f,  height: %f",self.frame.size.width,self.frame.size.height);
     
     //NSLog(@"bounds width: %f,  height: %f",CGRectGetWidth(self.bounds),CGRectGetHeight(self.bounds));
@@ -45,6 +46,16 @@
     
     self.layer.cornerRadius = CGRectGetWidth(self.bounds)/2.f;
 }
+
+/*-(void)didMoveToWindow{
+    NSLog(@"win");
+    NSLog(@"frame size width: %f,  height: %f",self.frame.size.width,self.frame.size.height);
+}
+
+-(void)didMoveToSuperview{
+    NSLog(@"su");
+    NSLog(@"frame size width: %f,  height: %f",self.frame.size.width,self.frame.size.height);
+}*/
 
 /*- (void)drawRect:(CGRect)rect {
     NSLog(@"drawRect runned");

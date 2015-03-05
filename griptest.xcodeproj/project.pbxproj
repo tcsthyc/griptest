@@ -12,6 +12,7 @@
 		3219D7681AA6D72F009CB554 /* DataReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D7671AA6D72F009CB554 /* DataReceiver.m */; };
 		3219D76B1AA6DAC4009CB554 /* DataUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D76A1AA6DAC4009CB554 /* DataUnit.m */; };
 		3219D76E1AA6E078009CB554 /* BarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D76D1AA6E078009CB554 /* BarChart.m */; };
+		321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */; };
 		32C2200B1AA58B5C00986142 /* SignUpPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C2200A1AA58B5C00986142 /* SignUpPageViewController.m */; };
 		32C2200F1AA5A74100986142 /* InputWithIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C2200D1AA5A74100986142 /* InputWithIconTableViewCell.m */; };
 		32C220101AA5A74100986142 /* InputWithIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32C2200E1AA5A74100986142 /* InputWithIconTableViewCell.xib */; };
@@ -50,6 +51,8 @@
 		3219D76A1AA6DAC4009CB554 /* DataUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataUnit.m; sourceTree = "<group>"; };
 		3219D76C1AA6E078009CB554 /* BarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChart.h; sourceTree = "<group>"; };
 		3219D76D1AA6E078009CB554 /* BarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChart.m; sourceTree = "<group>"; };
+		321DAD5A1AA8441E00DFEAB4 /* MeasureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
+		321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		32C220091AA58B5C00986142 /* SignUpPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpPageViewController.h; sourceTree = "<group>"; };
 		32C2200A1AA58B5C00986142 /* SignUpPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpPageViewController.m; sourceTree = "<group>"; };
 		32C2200C1AA5A74100986142 /* InputWithIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputWithIconTableViewCell.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				3219D7601AA6A685009CB554 /* UserSexAndBdSelectVC.m */,
 				3219D7621AA6A6C1009CB554 /* UserHeightAndWeightSelectVC.h */,
 				3219D7631AA6A6C1009CB554 /* UserHeightAndWeightSelectVC.m */,
+				321DAD5A1AA8441E00DFEAB4 /* MeasureViewController.h */,
+				321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				32E4182A1AA6FB2F002CC19D /* Queue.m in Sources */,
 				3219D7681AA6D72F009CB554 /* DataReceiver.m in Sources */,
 				37E327831A6A643F00D5137B /* User.m in Sources */,
+				321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */,
 				3716F38B1A5BDB950010A564 /* AppDelegate.m in Sources */,
 				3219D7611AA6A685009CB554 /* UserSexAndBdSelectVC.m in Sources */,
 				3219D76E1AA6E078009CB554 /* BarChart.m in Sources */,

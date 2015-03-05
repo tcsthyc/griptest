@@ -18,5 +18,8 @@
 
 @interface DataReceiver : NSObject
 -(void)startListening;
+-(void)stopListening;
+- (DataReceiver *)initWithHandler:(id <DataReceivedDelegate>)mHandler;
+
 @property (nonatomic,retain) id <DataReceivedDelegate> handler;
 @end

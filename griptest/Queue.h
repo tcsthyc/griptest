@@ -12,9 +12,9 @@
 -(Queue *)initWithSize:(int)s;
 -(void)enqueue:(float)value;
 //-(float)dequeue;
-@property(nonatomic,readwrite) int front;
+//@property(nonatomic,readwrite) int front;
 @property(nonatomic,readwrite) int rear;
 @property(nonatomic,readwrite) int size;
-@property(nonatomic,readwrite) int length;
+//@property(nonatomic,readwrite) int length;
 @property(nonatomic,readwrite) NSMutableArray *values;
 @end

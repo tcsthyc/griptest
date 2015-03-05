@@ -10,34 +10,28 @@
 
 @implementation Queue
 
-@synthesize length;
+//@synthesize length;
 @synthesize size;
-@synthesize front;
+//@synthesize front;
 @synthesize rear;
 
 -(Queue *)initWithSize:(int)s
 {
     self = [super init];
     if (self) {
-        self.values=[NSMutableArray arrayWithCapacity:size];
         self.size=s;
-        self.front=0;
-        self.rear=0;
-        self.length=0;
+        self.values=[NSMutableArray arrayWithCapacity:size];
+        for(int i=0;i<size;i++){
+            [self.values addObject:[NSNumber numberWithFloat:0]];
+        }
+        self.rear=size-1;
     }
     return self;
 }
 
 -(void)enqueue:(float)value{
+    rear=(rear+1)%size;
     [self.values replaceObjectAtIndex:self.rear withObject:[NSNumber numberWithFloat:value]];
-    
-    if(length<size){
-        length++;
-        rear=(rear+1)%size;
-    }else{
-        front=(front+1)%size;
-        rear=(rear+1)%size;
-    }
 }
 
 

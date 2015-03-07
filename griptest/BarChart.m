@@ -1,6 +1,7 @@
 //
 //  BarChart.m
 //  griptest
+//  use function drawrect to draw the view, did not use layer.
 //
 //  Created by MaggieWei on 15-3-4.
 //  Copyright (c) 2015年 FIDT. All rights reserved.
@@ -222,8 +223,7 @@ Queue *littleHistory;
     [str drawInRect:textRect withAttributes:attrs];
     //draw text on top
     textRect=CGRectMake(textRectCenterX-topTextRectSize.width/2.0f, -contentSize.height-topTextRectSize.height, topTextRectSize.width, topTextRectSize.height);
-    int latestIndex=indexHistory.rear==0?indexHistory.size-1:indexHistory.rear-1;
-    str = [NSString stringWithFormat:@"%f",[[indexHistory.values objectAtIndex:latestIndex] floatValue]];
+    str = [NSString stringWithFormat:@"%f",[[indexHistory.values objectAtIndex:indexHistory.rear] floatValue]];
     attrs[NSForegroundColorAttributeName] = topTextColor;
     attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
     attrs[NSParagraphStyleAttributeName] = textParagraphStyle;
@@ -260,8 +260,7 @@ Queue *littleHistory;
     [str drawInRect:textRect withAttributes:attrs];
     //draw text on top
     textRect=CGRectMake(textRectCenterX-topTextRectSize.width/2.0f, -contentSize.height-topTextRectSize.height, topTextRectSize.width, topTextRectSize.height);
-    int latestIndex=middleHistory.rear==0?middleHistory.size-1:middleHistory.rear-1;
-    str = [NSString stringWithFormat:@"%f",[[middleHistory.values objectAtIndex:latestIndex] floatValue]];
+    str = [NSString stringWithFormat:@"%f",[[middleHistory.values objectAtIndex:middleHistory.rear] floatValue]];
     attrs[NSForegroundColorAttributeName] = topTextColor;
     attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
     attrs[NSParagraphStyleAttributeName] = textParagraphStyle;
@@ -298,8 +297,7 @@ Queue *littleHistory;
     [str drawInRect:textRect withAttributes:attrs];
     //draw text on top
     textRect=CGRectMake(textRectCenterX-topTextRectSize.width/2.0f, -contentSize.height-topTextRectSize.height, topTextRectSize.width, topTextRectSize.height);
-    int latestIndex=ringHistory.rear==0?ringHistory.size-1:ringHistory.rear-1;
-    str = [NSString stringWithFormat:@"%f",[[ringHistory.values objectAtIndex:latestIndex] floatValue]];
+    str = [NSString stringWithFormat:@"%f",[[ringHistory.values objectAtIndex:ringHistory.rear] floatValue]];
     attrs[NSForegroundColorAttributeName] = topTextColor;
     attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
     attrs[NSParagraphStyleAttributeName] = textParagraphStyle;
@@ -336,8 +334,7 @@ Queue *littleHistory;
     [str drawInRect:textRect withAttributes:attrs];
     //draw text on top
     textRect=CGRectMake(textRectCenterX-topTextRectSize.width/2.0f, -contentSize.height-topTextRectSize.height, topTextRectSize.width, topTextRectSize.height);
-    int latestIndex=littleHistory.rear==0?littleHistory.size-1:littleHistory.rear-1;
-    str = [NSString stringWithFormat:@"%f",[[littleHistory.values objectAtIndex:latestIndex] floatValue]];
+    str = [NSString stringWithFormat:@"%f",[[littleHistory.values objectAtIndex:littleHistory.rear] floatValue]];
     attrs[NSForegroundColorAttributeName] = topTextColor;
     attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
     attrs[NSParagraphStyleAttributeName] = textParagraphStyle;

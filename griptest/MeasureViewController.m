@@ -15,6 +15,7 @@
 @implementation MeasureViewController
 
 BOOL measureStarted;
+OperationButton *ob;
 
 DataReceiver *dr;
 
@@ -22,8 +23,12 @@ DataReceiver *dr;
     [super viewDidLoad];
     
     measureStarted=NO;
-    UITapGestureRecognizer *operationTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(operationButtonTapped)];
-    [self.operationButton addGestureRecognizer:operationTap];
+    
+    ob=[[[NSBundle mainBundle] loadNibNamed:@"OperationButton" owner:self options:nil] lastObject];
+    [ob setFrame:self.OperationButtonArea.bounds];
+    [self.OperationButtonArea addSubview:ob];
+    UITapGestureRecognizer *operationBtnTapRec=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(operationButtonTapped)];
+    [ob addGestureRecognizer:operationBtnTapRec];
     
     dr=[[DataReceiver alloc]initWithHandler:self.barChartView];
 }
@@ -35,10 +40,12 @@ DataReceiver *dr;
 
 -(void)operationButtonTapped{
     if(measureStarted){
+        [ob changeStatus:stopped];
         [dr stopListening];
         measureStarted=NO;
     }
     else{
+        [ob changeStatus:listening];
         [dr startListening];
         measureStarted=YES;
     }

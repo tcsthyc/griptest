@@ -3,7 +3,7 @@
 //  griptest
 //  use function drawrect to draw the view, did not use layer.
 //
-//  Created by MaggieWei on 15-3-4.
+//  Created by hyc on 15-3-4.
 //  Copyright (c) 2015年 FIDT. All rights reserved.
 //
 

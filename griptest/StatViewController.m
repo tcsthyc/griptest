@@ -14,18 +14,31 @@
 
 @implementation StatViewController
 
+OperationButton *btn;
+int count=0;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    OperationButton *btn=[[[NSBundle mainBundle] loadNibNamed:@"OperationButton" owner:self options:nil] lastObject];
+    btn=[[[NSBundle mainBundle] loadNibNamed:@"OperationButton" owner:self options:nil] lastObject];
     [btn setFrame:self.mView.bounds];
     [self.mView addSubview:btn];
+    UITapGestureRecognizer *operationBtnTap=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(operationButtonTapped)];
+    [btn addGestureRecognizer:operationBtnTap];
+
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)operationButtonTapped{
+    [btn changeStatus:listening];
+    UILabel *label=btn.valueLabel;
+
+    label.text=[NSString stringWithFormat:@"%d",[label.text intValue]+1];
 }
 
 /*

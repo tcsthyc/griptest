@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+enum ListeningStatus{
+    toStart,listening,stopped
+};
 
 @interface OperationButton : UIView
+@property UILabel *valueLabel;
+-(void)changeStatus:(enum ListeningStatus)status;
 
 @end

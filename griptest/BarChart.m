@@ -22,7 +22,7 @@ CGSize sublineTextRectSize;
 UIColor *sublineTextColor;
 
 //(sublineLength-xaxisLength)/2
-const int sublineExtraSideLength=5;
+const int sublineExtraSideLength=10;
 
 //subline values
 const int sublineValues[3]={10,15,20};
@@ -54,20 +54,6 @@ Queue *middleHistory;
 Queue *ringHistory;
 Queue *littleHistory;
 
-/*- (BarChart *)init
-{
-    self = [super init];
-    
-    if (self) {
-        indexHistory=[[Queue alloc] initWithSize:10];
-        middleHistory=[[Queue alloc] initWithSize:10];
-        ringHistory=[[Queue alloc] initWithSize:10];
-        littleHistory=[[Queue alloc] initWithSize:10];
-    }
-    CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(redrawAndNotify)];
-    [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-    return self;
-}*/
 
 - (BarChart *)initWithFrame:(CGRect)frame
 {
@@ -78,18 +64,15 @@ Queue *littleHistory;
         ringHistory=[[Queue alloc] initWithSize:10];
         littleHistory=[[Queue alloc] initWithSize:10];
         
-        xTextRectSize=CGSizeMake(30.0f, 15.0f);
+        xTextRectSize=CGSizeMake(45.0f, 15.0f);
         topTextRectSize=CGSizeMake(30.0f, 15.0f);
         sublineTextRectSize=CGSizeMake(20.0f, 15.0f);
         
         sublineTextColor=[UIColor colorWithRed:150.0f/255 green:150.0f/255 blue:150.0f/255 alpha:1];
         xTextColor=sublineTextColor;
         topTextColor=[UIColor colorWithRed:227.0f/255 green:83.0f/255 blue:56.0f/255 alpha:1];
-        
-        float contentHeight=self.bounds.size.height-xTextRectSize.height-topTextRectSize.height;
-        float contentWidth=self.bounds.size.width-sublineExtraSideLength-sublineTextRectSize.width;
-        contentSize=CGSizeMake(contentWidth, contentHeight);
-        spaceOnX=(contentWidth-2*xPadding-4*(10*singleBarWidth+9*spaceBetweenBars))/3.0f;
+        textParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+        textParagraphStyle.alignment = NSTextAlignmentCenter;
         
         CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(setNeedsDisplay)];
         [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
@@ -102,12 +85,13 @@ Queue *littleHistory;
 {
     self = [super initWithCoder:coder];
     if (self) {
+        //NSLog(@"w:%f, h: %f,init",self.bounds.size.width,self.bounds.size.height);
         indexHistory=[[Queue alloc] initWithSize:10];
         middleHistory=[[Queue alloc] initWithSize:10];
         ringHistory=[[Queue alloc] initWithSize:10];
         littleHistory=[[Queue alloc] initWithSize:10];
         
-        xTextRectSize=CGSizeMake(30.0f, 15.0f);
+        xTextRectSize=CGSizeMake(45.0f, 15.0f);
         topTextRectSize=CGSizeMake(30.0f, 15.0f);
         sublineTextRectSize=CGSizeMake(20.0f, 15.0f);
         
@@ -116,11 +100,6 @@ Queue *littleHistory;
         topTextColor=[UIColor colorWithRed:227.0f/255 green:83.0f/255 blue:56.0f/255 alpha:1];
         textParagraphStyle = [[NSMutableParagraphStyle alloc] init];
         textParagraphStyle.alignment = NSTextAlignmentCenter;
-        
-        float contentHeight=self.bounds.size.height-xTextRectSize.height-topTextRectSize.height;
-        float contentWidth=self.bounds.size.width-sublineExtraSideLength-sublineTextRectSize.width;
-        contentSize=CGSizeMake(contentWidth, contentHeight);
-        spaceOnX=(contentWidth-2*xPadding-4*(10*singleBarWidth+9*spaceBetweenBars))/3.0f;
         
         CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(setNeedsDisplay)];
         [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
@@ -136,6 +115,11 @@ Queue *littleHistory;
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     //self.bounds
+    float contentHeight=self.bounds.size.height-xTextRectSize.height-topTextRectSize.height;
+    float contentWidth=self.bounds.size.width-sublineExtraSideLength*2-sublineTextRectSize.width;
+    contentSize=CGSizeMake(contentWidth, contentHeight);
+    spaceOnX=(contentWidth-2*xPadding-4*(10*singleBarWidth+9*spaceBetweenBars))/3.0f;
+    
     CGContextRef ctx=UIGraphicsGetCurrentContext();
     CGContextSaveGState(ctx);
     CGContextTranslateCTM(ctx, 0, self.bounds.size.height);
@@ -198,22 +182,20 @@ Queue *littleHistory;
 
 -(void)drawIndexBarsWithCtx:(CGContextRef)ctx{
     CGContextSaveGState(ctx);
-    CGContextTranslateCTM(ctx, sublineTextRectSize.width+sublineExtraSideLength, xTextRectSize.height);
+    CGContextTranslateCTM(ctx, sublineTextRectSize.width+sublineExtraSideLength+xPadding, xTextRectSize.height);
     CGContextSetRGBFillColor(ctx, 67/255.0f, 135/255.0f, 183/255.0f, 1);
     
     //draw bars
-    int count=0;
     float curr;
     for(int i=1;i<=indexHistory.size;i++){
         curr=[[indexHistory.values objectAtIndex:(indexHistory.rear+i)%indexHistory.size] floatValue];
-        CGContextFillRect(ctx, CGRectMake(xPadding+count*(singleBarWidth+spaceBetweenBars), 0, singleBarWidth, contentSize.height/maxValueY*curr));
-        count++;
+        CGContextFillRect(ctx, CGRectMake((i-1)*(singleBarWidth+spaceBetweenBars), 0, singleBarWidth, contentSize.height/maxValueY*curr));
     }
     
     //draw text on bottom
     CGContextSaveGState(ctx);
     CGContextScaleCTM(ctx, 1, -1);
-    float textRectCenterX=xPadding+(10*singleBarWidth+9*spaceBetweenBars)/2.0f;
+    float textRectCenterX=(10*singleBarWidth+9*spaceBetweenBars)/2.0f;
     CGRect textRect=CGRectMake(textRectCenterX-xTextRectSize.width/2.0f, 0, xTextRectSize.width, xTextRectSize.height);
     NSString *str = @"食指";
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
@@ -235,22 +217,20 @@ Queue *littleHistory;
 
 -(void)drawMiddleBarsWithCtx:(CGContextRef)ctx{
     CGContextSaveGState(ctx);
-    CGContextTranslateCTM(ctx, sublineTextRectSize.width+sublineExtraSideLength+10*singleBarWidth+9*spaceBetweenBars+spaceOnX, xTextRectSize.height);
+    CGContextTranslateCTM(ctx, sublineTextRectSize.width+sublineExtraSideLength+xPadding+10*singleBarWidth+9*spaceBetweenBars+spaceOnX, xTextRectSize.height);
     CGContextSetRGBFillColor(ctx, 67/255.0f, 135/255.0f, 183/255.0f, 1);
     
     //draw bars
-    int count=0;
     float curr;
     for(int i=1;i<=middleHistory.size;i++){
         curr=[[middleHistory.values objectAtIndex:(middleHistory.rear+i)%middleHistory.size] floatValue];
-        CGContextFillRect(ctx, CGRectMake(xPadding+count*(singleBarWidth+spaceBetweenBars), 0, singleBarWidth, contentSize.height/maxValueY*curr));
-        count++;
+        CGContextFillRect(ctx, CGRectMake((i-1)*(singleBarWidth+spaceBetweenBars), 0, singleBarWidth, contentSize.height/maxValueY*curr));
     }
     
     //draw text on bottom
     CGContextSaveGState(ctx);
     CGContextScaleCTM(ctx, 1, -1);
-    float textRectCenterX=xPadding+(10*singleBarWidth+9*spaceBetweenBars)/2.0f;
+    float textRectCenterX=(10*singleBarWidth+9*spaceBetweenBars)/2.0f;
     CGRect textRect=CGRectMake(textRectCenterX-xTextRectSize.width/2.0f, 0, xTextRectSize.width, xTextRectSize.height);
     NSString *str = @"中指";
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
@@ -272,22 +252,20 @@ Queue *littleHistory;
 
 -(void)drawRingBarsWithCtx:(CGContextRef)ctx{
     CGContextSaveGState(ctx);
-    CGContextTranslateCTM(ctx, sublineTextRectSize.width+sublineExtraSideLength+(10*singleBarWidth+9*spaceBetweenBars+spaceOnX)*2, xTextRectSize.height);
+    CGContextTranslateCTM(ctx, sublineTextRectSize.width+sublineExtraSideLength+xPadding+(10*singleBarWidth+9*spaceBetweenBars+spaceOnX)*2, xTextRectSize.height);
     CGContextSetRGBFillColor(ctx, 67/255.0f, 135/255.0f, 183/255.0f, 1);
     
     //draw bars
-    int count=0;
     float curr;
     for(int i=1;i<=ringHistory.size;i++){
         curr=[[ringHistory.values objectAtIndex:(ringHistory.rear+i)%ringHistory.size] floatValue];
-        CGContextFillRect(ctx, CGRectMake(xPadding+count*(singleBarWidth+spaceBetweenBars), 0, singleBarWidth, contentSize.height/maxValueY*curr));
-        count++;
+        CGContextFillRect(ctx, CGRectMake((i-1)*(singleBarWidth+spaceBetweenBars), 0, singleBarWidth, contentSize.height/maxValueY*curr));
     }
     
     //draw text on bottom
     CGContextSaveGState(ctx);
     CGContextScaleCTM(ctx, 1, -1);
-    float textRectCenterX=xPadding+(10*singleBarWidth+9*spaceBetweenBars)/2.0f;
+    float textRectCenterX=(10*singleBarWidth+9*spaceBetweenBars)/2.0f;
     CGRect textRect=CGRectMake(textRectCenterX-xTextRectSize.width/2.0f, 0, xTextRectSize.width, xTextRectSize.height);
     NSString *str = @"无名指";
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
@@ -309,22 +287,20 @@ Queue *littleHistory;
 
 -(void)drawLittleBarsWithCtx:(CGContextRef)ctx{
     CGContextSaveGState(ctx);
-    CGContextTranslateCTM(ctx, sublineTextRectSize.width+sublineExtraSideLength+(10*singleBarWidth+9*spaceBetweenBars+spaceOnX)*3, xTextRectSize.height);
+    CGContextTranslateCTM(ctx, sublineTextRectSize.width+sublineExtraSideLength+xPadding+(10*singleBarWidth+9*spaceBetweenBars+spaceOnX)*3, xTextRectSize.height);
     CGContextSetRGBFillColor(ctx, 67/255.0f, 135/255.0f, 183/255.0f, 1);
     
     //draw bars
-    int count=0;
     float curr;
     for(int i=1;i<=littleHistory.size;i++){
         curr=[[littleHistory.values objectAtIndex:(littleHistory.rear+i)%littleHistory.size] floatValue];
-        CGContextFillRect(ctx, CGRectMake(xPadding+count*(singleBarWidth+spaceBetweenBars), 0, singleBarWidth, contentSize.height/maxValueY*curr));
-        count++;
+        CGContextFillRect(ctx, CGRectMake((i-1)*(singleBarWidth+spaceBetweenBars), 0, singleBarWidth, contentSize.height/maxValueY*curr));
     }
     
     //draw text on bottom
     CGContextSaveGState(ctx);
     CGContextScaleCTM(ctx, 1, -1);
-    float textRectCenterX=xPadding+(10*singleBarWidth+9*spaceBetweenBars)/2.0f;
+    float textRectCenterX=(10*singleBarWidth+9*spaceBetweenBars)/2.0f;
     CGRect textRect=CGRectMake(textRectCenterX-xTextRectSize.width/2.0f, 0, xTextRectSize.width, xTextRectSize.height);
     NSString *str = @"小指";
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
@@ -349,6 +325,17 @@ Queue *littleHistory;
     [middleHistory enqueue:data.middle];
     [ringHistory enqueue:data.ring];
     [littleHistory enqueue:data.little];
+}
+
+/*-(void)didMoveToSuperview{
+    NSLog(@"w:%f, h: %f,super",self.bounds.size.width,self.bounds.size.height);
+}*/
+-(void)didMoveToWindow{
+    //NSLog(@"w:%f, h: %f,win",self.bounds.size.width,self.bounds.size.height);
+    float contentHeight=self.bounds.size.height-xTextRectSize.height-topTextRectSize.height;
+    float contentWidth=self.bounds.size.width-sublineExtraSideLength*2-sublineTextRectSize.width;
+    contentSize=CGSizeMake(contentWidth, contentHeight);
+    spaceOnX=(contentWidth-2*xPadding-4*(10*singleBarWidth+9*spaceBetweenBars))/3.0f;
 }
 
 @end

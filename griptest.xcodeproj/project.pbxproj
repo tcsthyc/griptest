@@ -25,6 +25,10 @@
 		3716F38D1A5BDB950010A564 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3716F38C1A5BDB950010A564 /* Images.xcassets */; };
 		3716F3991A5BDB950010A564 /* griptestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3716F3981A5BDB950010A564 /* griptestTests.m */; };
 		375086D51A6116550053689B /* GTMainStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 375086D41A6116550053689B /* GTMainStory.storyboard */; };
+		3774EB591AAC07B6008CF39D /* TabBarRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774EB581AAC07B6008CF39D /* TabBarRootViewController.m */; };
+		3774EB5B1AAC0DCB008CF39D /* OperationButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3774EB5A1AAC0DCB008CF39D /* OperationButton.xib */; };
+		3774EB5E1AAC3A82008CF39D /* OperationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774EB5D1AAC3A82008CF39D /* OperationButton.m */; };
+		3774EB611AAC3DFF008CF39D /* StatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774EB601AAC3DFF008CF39D /* StatViewController.m */; };
 		3799AC851A67AAC9000C7280 /* GTUserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3799AC831A67AAC9000C7280 /* GTUserModel.xcdatamodeld */; };
 		37E327801A6A623200D5137B /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3277F1A6A623200D5137B /* Launch Screen.xib */; };
 		37E327831A6A643F00D5137B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E327821A6A643F00D5137B /* User.m */; };
@@ -76,6 +80,13 @@
 		3716F3971A5BDB950010A564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3716F3981A5BDB950010A564 /* griptestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = griptestTests.m; sourceTree = "<group>"; };
 		375086D41A6116550053689B /* GTMainStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GTMainStory.storyboard; path = ../GTMainStory.storyboard; sourceTree = "<group>"; };
+		3774EB571AAC07B6008CF39D /* TabBarRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarRootViewController.h; sourceTree = "<group>"; };
+		3774EB581AAC07B6008CF39D /* TabBarRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarRootViewController.m; sourceTree = "<group>"; };
+		3774EB5A1AAC0DCB008CF39D /* OperationButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationButton.xib; sourceTree = "<group>"; };
+		3774EB5C1AAC3A82008CF39D /* OperationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationButton.h; sourceTree = "<group>"; };
+		3774EB5D1AAC3A82008CF39D /* OperationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationButton.m; sourceTree = "<group>"; };
+		3774EB5F1AAC3DFF008CF39D /* StatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatViewController.h; sourceTree = "<group>"; };
+		3774EB601AAC3DFF008CF39D /* StatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatViewController.m; sourceTree = "<group>"; };
 		3799AC841A67AAC9000C7280 /* GTUserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GTUserModel.xcdatamodel; sourceTree = "<group>"; };
 		37E3277F1A6A623200D5137B /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		37E327811A6A643F00D5137B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -124,6 +135,10 @@
 				3219D7631AA6A6C1009CB554 /* UserHeightAndWeightSelectVC.m */,
 				321DAD5A1AA8441E00DFEAB4 /* MeasureViewController.h */,
 				321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */,
+				3774EB571AAC07B6008CF39D /* TabBarRootViewController.h */,
+				3774EB581AAC07B6008CF39D /* TabBarRootViewController.m */,
+				3774EB5F1AAC3DFF008CF39D /* StatViewController.h */,
+				3774EB601AAC3DFF008CF39D /* StatViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -140,6 +155,9 @@
 				32C220121AA5B68D00986142 /* CircleImageView.m */,
 				3219D76C1AA6E078009CB554 /* BarChart.h */,
 				3219D76D1AA6E078009CB554 /* BarChart.m */,
+				3774EB5A1AAC0DCB008CF39D /* OperationButton.xib */,
+				3774EB5C1AAC3A82008CF39D /* OperationButton.h */,
+				3774EB5D1AAC3A82008CF39D /* OperationButton.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -299,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				375086D51A6116550053689B /* GTMainStory.storyboard in Resources */,
+				3774EB5B1AAC0DCB008CF39D /* OperationButton.xib in Resources */,
 				3716F38D1A5BDB950010A564 /* Images.xcassets in Resources */,
 				37E327801A6A623200D5137B /* Launch Screen.xib in Resources */,
 				32C220101AA5A74100986142 /* InputWithIconTableViewCell.xib in Resources */,
@@ -322,9 +341,12 @@
 				32E4182A1AA6FB2F002CC19D /* Queue.m in Sources */,
 				3219D7681AA6D72F009CB554 /* DataReceiver.m in Sources */,
 				37E327831A6A643F00D5137B /* User.m in Sources */,
+				3774EB611AAC3DFF008CF39D /* StatViewController.m in Sources */,
 				321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */,
 				3716F38B1A5BDB950010A564 /* AppDelegate.m in Sources */,
 				3219D7611AA6A685009CB554 /* UserSexAndBdSelectVC.m in Sources */,
+				3774EB591AAC07B6008CF39D /* TabBarRootViewController.m in Sources */,
+				3774EB5E1AAC3A82008CF39D /* OperationButton.m in Sources */,
 				3219D76E1AA6E078009CB554 /* BarChart.m in Sources */,
 				3799AC851A67AAC9000C7280 /* GTUserModel.xcdatamodeld in Sources */,
 				3219D7641AA6A6C1009CB554 /* UserHeightAndWeightSelectVC.m in Sources */,

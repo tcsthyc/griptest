@@ -8,7 +8,7 @@
         <!--统计-->
         <scene sceneID="tH9-0n-FLe">
             <objects>
-                <viewController id="S85-0P-Uid" sceneMemberID="viewController">
+                <viewController id="S85-0P-Uid" customClass="StatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wjd-7V-aIW"/>
                         <viewControllerLayoutGuide type="bottom" id="YIg-mt-tVz"/>
@@ -16,15 +16,32 @@
                     <view key="view" contentMode="scaleToFill" id="zjd-pH-TkZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcM-xY-dmA">
+                                <rect key="frame" x="110" y="127" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="IUh-TI-YKO"/>
+                                    <constraint firstAttribute="height" constant="100" id="Lc1-De-ih7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="ZcM-xY-dmA" secondAttribute="centerY" constant="75" id="wM1-OJ-C61"/>
+                            <constraint firstAttribute="centerX" secondItem="ZcM-xY-dmA" secondAttribute="centerX" constant="-0.5" id="xpl-uz-7QS"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="统计" id="zrP-p2-2Oj"/>
+                    <tabBarItem key="tabBarItem" title="统计" image="statistic_tab_bar" id="zrP-p2-2Oj"/>
+                    <connections>
+                        <outlet property="mView" destination="ZcM-xY-dmA" id="B3G-7f-t4o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bV8-hk-ONL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1117" y="670"/>
         </scene>
-        <!--贴士-->
+        <!--我-->
         <scene sceneID="0Mh-y7-Gvp">
             <objects>
                 <viewController id="HY8-RM-srt" sceneMemberID="viewController">
@@ -37,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="贴士" id="863-nr-E4m"/>
+                    <tabBarItem key="tabBarItem" title="我" image="me_tab_bar" id="863-nr-E4m"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D6D-PT-Eg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,7 +63,7 @@
         <!--握握-->
         <scene sceneID="5GU-yM-zjF">
             <objects>
-                <tabBarController id="Njv-0k-yiI" sceneMemberID="viewController">
+                <tabBarController id="Njv-0k-yiI" customClass="TabBarRootViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="握握" id="D2G-We-5Pe"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="cSj-iM-7jY">
@@ -175,7 +192,7 @@
             </objects>
             <point key="canvasLocation" x="-662" y="670"/>
         </scene>
-        <!--我-->
+        <!--贴士-->
         <scene sceneID="F5B-Jh-Sjf">
             <objects>
                 <viewController id="jdc-21-eXg" sceneMemberID="viewController">
@@ -188,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我" id="LXh-rR-MVQ"/>
+                    <tabBarItem key="tabBarItem" title="贴士" image="tips_tab_bar" id="LXh-rR-MVQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmf-dE-5cI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,7 +224,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="设置" id="Rw2-je-4ir"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="setting_tab_bar" id="Rw2-je-4ir"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoP-gP-H0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -572,19 +589,6 @@
                                     <constraint firstAttribute="width" constant="48" id="MlC-Me-IBp"/>
                                 </constraints>
                             </imageView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6kq-lk-jeR">
-                                <rect key="frame" x="104" y="321" width="182" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="447082032.392483">
-                                    <!--2015-03-03 13:27:12 +0000-->
-                                </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-3187258004">
-                                    <!--1900-01-01 10:33:16 +0000-->
-                                </date>
-                                <date key="maximumDate" timeIntervalSinceReferenceDate="473270399">
-                                    <!--2015-12-31 15:59:59 +0000-->
-                                </date>
-                                <locale key="locale" localeIdentifier="zh-Hans"/>
-                            </datePicker>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bugIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bJd-Pr-L5o">
                                 <rect key="frame" x="238" y="265" width="48" height="48"/>
                                 <constraints>
@@ -605,7 +609,6 @@
                             <constraint firstItem="6JK-ua-jBN" firstAttribute="top" secondItem="eRf-MZ-iSj" secondAttribute="bottom" constant="8" id="7uB-NU-lYU"/>
                             <constraint firstItem="Vxc-84-dOn" firstAttribute="centerX" secondItem="R1F-Rd-3bS" secondAttribute="centerX" constant="-0.5" id="8HG-TO-ZB4"/>
                             <constraint firstItem="aNd-tl-mrr" firstAttribute="top" secondItem="RVo-T1-gcX" secondAttribute="bottom" constant="8" id="8Ru-7L-xtD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6kq-lk-jeR" secondAttribute="trailing" constant="18" id="9dH-c3-w2b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bJd-Pr-L5o" secondAttribute="trailing" constant="18" id="9ps-IW-jav"/>
                             <constraint firstItem="bJd-Pr-L5o" firstAttribute="centerX" secondItem="yZF-dX-Bq2" secondAttribute="centerX" id="Bqs-xG-o4J"/>
                             <constraint firstItem="Y2I-fl-VZj" firstAttribute="centerY" secondItem="Vxc-84-dOn" secondAttribute="centerY" id="DoW-AD-JBM"/>
@@ -628,18 +631,16 @@
                             <constraint firstAttribute="centerX" secondItem="aNd-tl-mrr" secondAttribute="centerX" id="lPa-ay-Hcb"/>
                             <constraint firstAttribute="centerX" secondItem="50f-gE-0kz" secondAttribute="centerX" id="nL8-FL-U9e"/>
                             <constraint firstItem="R1F-Rd-3bS" firstAttribute="centerY" secondItem="yZF-dX-Bq2" secondAttribute="centerY" id="r9Y-1V-AMr"/>
-                            <constraint firstItem="6kq-lk-jeR" firstAttribute="leading" secondItem="6JK-ua-jBN" secondAttribute="trailing" constant="8" id="uBX-eU-GxJ"/>
                             <constraint firstItem="50f-gE-0kz" firstAttribute="top" secondItem="q5z-q4-ueG" secondAttribute="bottom" constant="8" id="uST-Ur-DF2"/>
                             <constraint firstItem="lTQ-8u-OTw" firstAttribute="top" secondItem="50f-gE-0kz" secondAttribute="bottom" constant="20" id="xQw-ab-HL9"/>
                             <constraint firstItem="eRf-MZ-iSj" firstAttribute="top" secondItem="Y2I-fl-VZj" secondAttribute="bottom" constant="28" id="xWZ-dZ-pbf"/>
-                            <constraint firstItem="6JK-ua-jBN" firstAttribute="centerY" secondItem="6kq-lk-jeR" secondAttribute="centerY" constant="3" id="zpB-Uh-z4R"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hGf-hg-h9b"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwg-zq-e9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="338" y="-1182"/>
+            <point key="canvasLocation" x="338" y="-1191"/>
         </scene>
         <!--User Height And Weight SelectVC-->
         <scene sceneID="ASe-B4-l7b">
@@ -821,6 +822,10 @@
     </scenes>
     <resources>
         <image name="bugIcon" width="128" height="128"/>
+        <image name="me_tab_bar" width="25" height="25"/>
+        <image name="setting_tab_bar" width="25" height="25"/>
+        <image name="statistic_tab_bar" width="25" height="25"/>
+        <image name="tips_tab_bar" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

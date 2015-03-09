@@ -29,6 +29,7 @@
 		3774EB5B1AAC0DCB008CF39D /* OperationButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3774EB5A1AAC0DCB008CF39D /* OperationButton.xib */; };
 		3774EB5E1AAC3A82008CF39D /* OperationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774EB5D1AAC3A82008CF39D /* OperationButton.m */; };
 		3774EB611AAC3DFF008CF39D /* StatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774EB601AAC3DFF008CF39D /* StatViewController.m */; };
+		3798ED8C1AADDF67000F37B5 /* GripForceCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3798ED8B1AADDF67000F37B5 /* GripForceCalculator.m */; };
 		3799AC851A67AAC9000C7280 /* GTUserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3799AC831A67AAC9000C7280 /* GTUserModel.xcdatamodeld */; };
 		37E327801A6A623200D5137B /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3277F1A6A623200D5137B /* Launch Screen.xib */; };
 		37E327831A6A643F00D5137B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E327821A6A643F00D5137B /* User.m */; };
@@ -87,6 +88,8 @@
 		3774EB5D1AAC3A82008CF39D /* OperationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationButton.m; sourceTree = "<group>"; };
 		3774EB5F1AAC3DFF008CF39D /* StatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatViewController.h; sourceTree = "<group>"; };
 		3774EB601AAC3DFF008CF39D /* StatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatViewController.m; sourceTree = "<group>"; };
+		3798ED8A1AADDF67000F37B5 /* GripForceCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GripForceCalculator.h; sourceTree = "<group>"; };
+		3798ED8B1AADDF67000F37B5 /* GripForceCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GripForceCalculator.m; sourceTree = "<group>"; };
 		3799AC841A67AAC9000C7280 /* GTUserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GTUserModel.xcdatamodel; sourceTree = "<group>"; };
 		37E3277F1A6A623200D5137B /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		37E327811A6A643F00D5137B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 				3219D7671AA6D72F009CB554 /* DataReceiver.m */,
 				32E418281AA6FB2F002CC19D /* Queue.h */,
 				32E418291AA6FB2F002CC19D /* Queue.m */,
+				3798ED8A1AADDF67000F37B5 /* GripForceCalculator.h */,
+				3798ED8B1AADDF67000F37B5 /* GripForceCalculator.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */,
 				3716F38B1A5BDB950010A564 /* AppDelegate.m in Sources */,
 				3219D7611AA6A685009CB554 /* UserSexAndBdSelectVC.m in Sources */,
+				3798ED8C1AADDF67000F37B5 /* GripForceCalculator.m in Sources */,
 				3774EB591AAC07B6008CF39D /* TabBarRootViewController.m in Sources */,
 				3774EB5E1AAC3A82008CF39D /* OperationButton.m in Sources */,
 				3219D76E1AA6E078009CB554 /* BarChart.m in Sources */,

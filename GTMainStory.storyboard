@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -131,7 +131,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xQ-Sr-E4h" customClass="BarChart">
-                                <rect key="frame" x="20" y="198" width="280" height="232"/>
+                                <rect key="frame" x="20" y="208" width="280" height="222"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vR3-kg-io3">
@@ -141,6 +141,16 @@
                                     <constraint firstAttribute="width" constant="96" id="si0-KF-yyb"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbF-D7-KzZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="M6V-Ri-8mw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -149,6 +159,7 @@
                             <constraint firstItem="vR3-kg-io3" firstAttribute="top" secondItem="2V4-Qx-ECk" secondAttribute="bottom" constant="15" id="DYd-Wz-DX9"/>
                             <constraint firstItem="Dpw-uW-o3v" firstAttribute="top" secondItem="3jg-p4-lg1" secondAttribute="bottom" constant="8" id="GIL-ZV-64c"/>
                             <constraint firstAttribute="centerX" secondItem="vR3-kg-io3" secondAttribute="centerX" id="HJt-X6-SfZ"/>
+                            <constraint firstItem="QbF-D7-KzZ" firstAttribute="width" secondItem="yq9-Sb-K3w" secondAttribute="width" id="MSL-He-kdf"/>
                             <constraint firstItem="3jg-p4-lg1" firstAttribute="centerX" secondItem="Dpw-uW-o3v" secondAttribute="centerX" id="NCh-99-5CL"/>
                             <constraint firstItem="NCP-XU-KWD" firstAttribute="top" secondItem="ytv-bL-0WI" secondAttribute="bottom" constant="8" id="R3l-jf-xX9"/>
                             <constraint firstItem="FGI-Pp-O9f" firstAttribute="top" secondItem="6xQ-Sr-E4h" secondAttribute="bottom" constant="25" id="R95-t7-jB1"/>
@@ -158,16 +169,19 @@
                             <constraint firstItem="6xQ-Sr-E4h" firstAttribute="width" secondItem="yq9-Sb-K3w" secondAttribute="width" constant="-40" id="eAt-85-apM"/>
                             <constraint firstItem="CwT-5V-XW4" firstAttribute="centerY" secondItem="ytv-bL-0WI" secondAttribute="centerY" id="hSk-iD-9dz"/>
                             <constraint firstItem="CwT-5V-XW4" firstAttribute="leading" secondItem="ytv-bL-0WI" secondAttribute="trailing" constant="40" id="lBl-Ig-tCB"/>
-                            <constraint firstItem="6xQ-Sr-E4h" firstAttribute="top" secondItem="vR3-kg-io3" secondAttribute="bottom" constant="15" id="o0P-V1-RdA"/>
+                            <constraint firstItem="6xQ-Sr-E4h" firstAttribute="top" secondItem="vR3-kg-io3" secondAttribute="bottom" constant="25" id="o0P-V1-RdA"/>
                             <constraint firstAttribute="centerX" secondItem="6xQ-Sr-E4h" secondAttribute="centerX" id="tjK-JF-cw3"/>
                             <constraint firstItem="3jg-p4-lg1" firstAttribute="leading" secondItem="CwT-5V-XW4" secondAttribute="trailing" constant="40" id="vws-Iy-Lzb"/>
-                            <constraint firstItem="NCP-XU-KWD" firstAttribute="centerX" secondItem="ytv-bL-0WI" secondAttribute="centerX" constant="-0.5" id="xqD-Gn-Bj8"/>
+                            <constraint firstItem="QbF-D7-KzZ" firstAttribute="top" secondItem="DIY-Zc-c0u" secondAttribute="bottom" id="wMZ-wi-qOv"/>
+                            <constraint firstItem="NCP-XU-KWD" firstAttribute="centerX" secondItem="ytv-bL-0WI" secondAttribute="centerX" id="xqD-Gn-Bj8"/>
+                            <constraint firstAttribute="centerX" secondItem="QbF-D7-KzZ" secondAttribute="centerX" id="yTT-oZ-8cg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="测量" id="oNF-PY-uI4"/>
                     <connections>
                         <outlet property="OperationButtonArea" destination="vR3-kg-io3" id="8WA-OA-BwP"/>
                         <outlet property="barChartView" destination="6xQ-Sr-E4h" id="g6s-Ij-PZq"/>
+                        <outlet property="bluetoothStateLabel" destination="QbF-D7-KzZ" id="g1q-Ad-7ee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IH-ls-RXL" userLabel="First Responder" sceneMemberID="firstResponder"/>

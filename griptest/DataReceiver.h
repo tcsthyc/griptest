@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DataUnit.h"
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @protocol DataReceivedDelegate <NSObject>
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface DataReceiver : NSObject
+@interface DataReceiver : NSObject <CBCentralManagerDelegate>
 -(void)startListening;
 -(void)stopListening;
 - (DataReceiver *)initWithHandler:(id <DataReceivedDelegate>)mHandler;

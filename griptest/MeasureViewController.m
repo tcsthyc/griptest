@@ -14,6 +14,10 @@
 
 @implementation MeasureViewController
 
+@synthesize enForceLabel;
+@synthesize exForceLabel;
+@synthesize maxForceLabel;
+
 BOOL measureStarted;
 OperationButton *ob;
 CBCentralManager *mCentralManager;
@@ -26,7 +30,9 @@ CBPeripheral *mPeripheral;
 CBService *mDataService;
 CBCharacteristic *mDataChar;
 NSString *dataLineStr;
+GripForceCalculator *gfc;
 float f1,f2,f3,f4;
+
 
 //DataReceiver *dr;
 
@@ -34,6 +40,7 @@ float f1,f2,f3,f4;
     [super viewDidLoad];
     
     measureStarted=NO;
+    
     
     ob=[[[NSBundle mainBundle] loadNibNamed:@"OperationButton" owner:self options:nil] lastObject];
     [ob setFrame:self.OperationButtonArea.bounds];
@@ -54,12 +61,15 @@ float f1,f2,f3,f4;
 
 -(void)operationButtonTapped{
     if(measureStarted){
+        [mCentralManager cancelPeripheralConnection:mPeripheral];
         [ob changeStatus:stopped];
         //[dr stopListening];
         measureStarted=NO;
     }
     else{
+        [mCentralManager connectPeripheral:mPeripheral options:nil];
         [ob changeStatus:listening];
+        gfc=[[GripForceCalculator alloc] init];
         //[dr startListening];
         measureStarted=YES;
     }
@@ -114,7 +124,7 @@ float f1,f2,f3,f4;
         NSLog(@"Scanning stopped");
         [self setHintText:@"已搜索到设备，正在连接……"];
         /*[mCentralManager connectPeripheral:peripheral options:@{CBConnectPeripheralOptionNotifyOnConnectionKey: @YES, CBConnectPeripheralOptionNotifyOnDisconnectionKey: @YES, CBConnectPeripheralOptionNotifyOnNotificationKey: @YES}];*/
-        [mCentralManager connectPeripheral:peripheral options:nil];
+       // [mCentralManager connectPeripheral:peripheral options:nil];
 
     }
 }
@@ -126,6 +136,10 @@ float f1,f2,f3,f4;
     [self setHintText:@"设备连接成功！"];
     CBUUID *serviceToCon=[CBUUID UUIDWithString:serviceUUID];
     [peripheral discoverServices:@[serviceToCon]];
+}
+
+-(void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
+    [self setHintText:@"已断开设备！"];
 }
 
 -(void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
@@ -189,18 +203,19 @@ float f1,f2,f3,f4;
 */
 #pragma mark - utils
 -(void)convertDataAndPush:(NSString *)line{
+    //NSLog(@"%@",line);
     NSArray *dataArray=[[line substringToIndex:line.length-2] componentsSeparatedByString:@" "];
     
-    f1 = ([[dataArray objectAtIndex:0] floatValue] - 103) * 20.0 / (370 - 103);
+    f1 = ([[dataArray objectAtIndex:0] floatValue] - 117) * 20.0 / (370 - 117);
     if(f1 <= 0.1) f1 = 0.0;
     
     f2 = ([[dataArray objectAtIndex:1] floatValue] - 101) * 20.0 / (400 - 101);
     if(f2 <= 0.1) f2 = 0.0;
     
-    f3 = ([[dataArray objectAtIndex:2] floatValue] - 101) * 20.0 / (413 - 101);
+    f3 = ([[dataArray objectAtIndex:2] floatValue] - 117) * 20.0 / (413 - 117);
     if(f3 <= 0.1) f3 = 0.0;
     
-    f4 = ([[dataArray objectAtIndex:3] floatValue] - 105) * 20.0 / (425 - 105);
+    f4 = ([[dataArray objectAtIndex:3] floatValue] - 107) * 20.0 / (425 - 107);
     if(f4 <= 0.1) f4 = 0.0;
     
     DataUnit *du=[DataUnit alloc];
@@ -209,6 +224,12 @@ float f1,f2,f3,f4;
     du.ring=f3;
     du.little=f4;
     [self.barChartView onDataReceived:du];
+    [gfc pushData:du];
+    
+    [ob valueLabel].text=[NSString stringWithFormat:@"%0.1f",f1+f2+f3+f4];
+    maxForceLabel.text=[NSString stringWithFormat:@"%0.1f",gfc.maxForceTotal];
+    exForceLabel.text=[NSString stringWithFormat:@"%0.1f",gfc.exForceTotal];
+    enForceLabel.text=[NSString stringWithFormat:@"%0.1f",gfc.enForceTotal];    
 }
 
 @end

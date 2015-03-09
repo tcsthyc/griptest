@@ -25,9 +25,9 @@ UIColor *sublineTextColor;
 const int sublineExtraSideLength=10;
 
 //subline values
-const int sublineValues[3]={10,15,20};
+const int sublineValues[3]={5,10,15};
 const int sublinesCount=3;
-const int maxValueY=25;
+const int maxValueY=20;
 
 //left & right padding of x-axis
 const int xPadding=20;

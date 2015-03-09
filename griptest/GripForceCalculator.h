@@ -11,6 +11,9 @@
 
 @interface GripForceCalculator : NSObject
 @property(nonatomic,readonly) float maxForceTotal;
+@property(nonatomic,readonly) float exForceTotal;
+@property(nonatomic,readonly) float enForceTotal;
+
 @property(nonatomic,readonly) float maxForceIndex;
 @property(nonatomic,readonly) float maxForceMiddle;
 @property(nonatomic,readonly) float maxForceRing;

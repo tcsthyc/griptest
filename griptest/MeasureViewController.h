@@ -12,6 +12,7 @@
 #import "DataReceiver.h"
 #import "BarChart.h"
 #import "OperationButton.h"
+#import "GripForceCalculator.h"
 
 
 @interface MeasureViewController : UIViewController <CBCentralManagerDelegate,CBPeripheralDelegate>
@@ -19,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet BarChart *barChartView;
 @property (weak, nonatomic) IBOutlet UIView *OperationButtonArea;
 @property (weak, nonatomic) IBOutlet UILabel *bluetoothStateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *maxForceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *exForceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *enForceLabel;
 
 
 @end

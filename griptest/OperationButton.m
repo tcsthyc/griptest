@@ -64,6 +64,9 @@ UILabel *hintLabel;
             //valueLabel.alpha=1;
             break;
         case stopped:
+            [valueLabel setHidden:YES];
+            [hintLabel setHidden:YES];
+            [startLabel setHidden:NO];
             break;
         default:
             break;

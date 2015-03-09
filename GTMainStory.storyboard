@@ -17,16 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcM-xY-dmA">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcM-xY-dmA">
                                 <rect key="frame" x="110" y="127" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="IUh-TI-YKO"/>
                                     <constraint firstAttribute="height" constant="100" id="Lc1-De-ih7"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a demo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAZ-f6-bh1">
+                                <rect key="frame" x="115" y="241" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="oAZ-f6-bh1" secondAttribute="centerY" constant="0.5" id="0DW-sQ-7Zr"/>
+                            <constraint firstAttribute="centerX" secondItem="oAZ-f6-bh1" secondAttribute="centerX" constant="-0.5" id="m0V-IF-h7f"/>
                             <constraint firstAttribute="centerY" secondItem="ZcM-xY-dmA" secondAttribute="centerY" constant="75" id="wM1-OJ-C61"/>
                             <constraint firstAttribute="centerX" secondItem="ZcM-xY-dmA" secondAttribute="centerX" constant="-0.5" id="xpl-uz-7QS"/>
                         </constraints>
@@ -51,7 +59,19 @@
                     <view key="view" contentMode="scaleToFill" id="VzI-sc-4ta">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a demo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fi1-XS-was">
+                                <rect key="frame" x="115" y="241" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="fi1-XS-was" secondAttribute="centerY" constant="0.5" id="XGY-fq-tuX"/>
+                            <constraint firstAttribute="centerX" secondItem="fi1-XS-was" secondAttribute="centerX" constant="-0.5" id="d1B-lK-1nF"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="我" image="me_tab_bar" id="863-nr-E4m"/>
                 </viewController>
@@ -106,7 +126,7 @@
                                 <color key="textColor" red="0.47058823529999999" green="0.4823529412" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合力" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jg-p4-lg1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="耐力" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jg-p4-lg1">
                                 <rect key="frame" x="223" y="25" width="30" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.47058823529999999" green="0.4823529412" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,6 +202,9 @@
                         <outlet property="OperationButtonArea" destination="vR3-kg-io3" id="8WA-OA-BwP"/>
                         <outlet property="barChartView" destination="6xQ-Sr-E4h" id="g6s-Ij-PZq"/>
                         <outlet property="bluetoothStateLabel" destination="QbF-D7-KzZ" id="g1q-Ad-7ee"/>
+                        <outlet property="enForceLabel" destination="Dpw-uW-o3v" id="N1v-1R-sa1"/>
+                        <outlet property="exForceLabel" destination="2V4-Qx-ECk" id="atN-ma-fIR"/>
+                        <outlet property="maxForceLabel" destination="NCP-XU-KWD" id="rQA-oD-tY6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IH-ls-RXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -199,7 +222,19 @@
                     <view key="view" contentMode="scaleToFill" id="dTO-qF-1Pj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a demo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gT-39-GMW">
+                                <rect key="frame" x="115" y="241" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="0gT-39-GMW" secondAttribute="centerY" constant="0.5" id="CD3-gp-byS"/>
+                            <constraint firstAttribute="centerX" secondItem="0gT-39-GMW" secondAttribute="centerX" constant="-0.5" id="uyv-3V-qu4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="贴士" image="tips_tab_bar" id="LXh-rR-MVQ"/>
                 </viewController>
@@ -218,7 +253,19 @@
                     <view key="view" contentMode="scaleToFill" id="RLF-Vz-TC6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a demo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJb-MW-01x">
+                                <rect key="frame" x="115" y="241" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="xJb-MW-01x" secondAttribute="centerY" constant="0.5" id="V23-Tg-BeK"/>
+                            <constraint firstAttribute="centerX" secondItem="xJb-MW-01x" secondAttribute="centerX" id="VMR-oH-dhj"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="设置" image="setting_tab_bar" id="Rw2-je-4ir"/>
                 </viewController>

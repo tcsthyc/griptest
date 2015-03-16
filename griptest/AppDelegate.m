@@ -49,7 +49,7 @@
 }
 
 -(BOOL)isLoggedIn{
-    return YES;
+    return NO;
 }
 
 @end

@@ -17,6 +17,7 @@
 		32C2200F1AA5A74100986142 /* InputWithIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C2200D1AA5A74100986142 /* InputWithIconTableViewCell.m */; };
 		32C220101AA5A74100986142 /* InputWithIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32C2200E1AA5A74100986142 /* InputWithIconTableViewCell.xib */; };
 		32C220131AA5B68D00986142 /* CircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C220121AA5B68D00986142 /* CircleImageView.m */; };
+		32CBFEC81B11BFAD00DFD661 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CBFEC71B11BFAD00DFD661 /* TipsViewController.m */; };
 		32DEACC61AA4556A00B4E5F1 /* LoginInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DEACC51AA4556A00B4E5F1 /* LoginInfoTableViewCell.m */; };
 		32DEACC91AA45AEA00B4E5F1 /* SignInPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DEACC81AA45AEA00B4E5F1 /* SignInPageViewController.m */; };
 		32E4182A1AA6FB2F002CC19D /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E418291AA6FB2F002CC19D /* Queue.m */; };
@@ -33,6 +34,7 @@
 		3799AC851A67AAC9000C7280 /* GTUserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3799AC831A67AAC9000C7280 /* GTUserModel.xcdatamodeld */; };
 		37E327801A6A623200D5137B /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3277F1A6A623200D5137B /* Launch Screen.xib */; };
 		37E327831A6A643F00D5137B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E327821A6A643F00D5137B /* User.m */; };
+		FD985830E4E54714E865835D /* libPods-griptest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D55728FE61D176B0F123549 /* libPods-griptest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C1E5DD79CD47FAC555C8CDF /* Pods-griptest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-griptest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-griptest/Pods-griptest.debug.xcconfig"; sourceTree = "<group>"; };
+		0D55728FE61D176B0F123549 /* libPods-griptest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-griptest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3219D75F1AA6A685009CB554 /* UserSexAndBdSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSexAndBdSelectVC.h; sourceTree = "<group>"; };
 		3219D7601AA6A685009CB554 /* UserSexAndBdSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSexAndBdSelectVC.m; sourceTree = "<group>"; };
 		3219D7621AA6A6C1009CB554 /* UserHeightAndWeightSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHeightAndWeightSelectVC.h; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 		32C2200E1AA5A74100986142 /* InputWithIconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputWithIconTableViewCell.xib; sourceTree = "<group>"; };
 		32C220111AA5B67F00986142 /* CircleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleImageView.h; sourceTree = "<group>"; };
 		32C220121AA5B68D00986142 /* CircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageView.m; sourceTree = "<group>"; };
+		32CBFEC61B11BFAD00DFD661 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
+		32CBFEC71B11BFAD00DFD661 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
 		32DEACC41AA4556A00B4E5F1 /* LoginInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInfoTableViewCell.h; sourceTree = "<group>"; };
 		32DEACC51AA4556A00B4E5F1 /* LoginInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInfoTableViewCell.m; sourceTree = "<group>"; };
 		32DEACC71AA45AEA00B4E5F1 /* SignInPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInPageViewController.h; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 		37E3277F1A6A623200D5137B /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		37E327811A6A643F00D5137B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		37E327821A6A643F00D5137B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		4AACC3E338C87A079EB074F2 /* Pods-griptest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-griptest.release.xcconfig"; path = "Pods/Target Support Files/Pods-griptest/Pods-griptest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD985830E4E54714E865835D /* libPods-griptest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +152,8 @@
 				3774EB581AAC07B6008CF39D /* TabBarRootViewController.m */,
 				3774EB5F1AAC3DFF008CF39D /* StatViewController.h */,
 				3774EB601AAC3DFF008CF39D /* StatViewController.m */,
+				32CBFEC61B11BFAD00DFD661 /* TipsViewController.h */,
+				32CBFEC71B11BFAD00DFD661 /* TipsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -173,6 +183,8 @@
 				3716F3841A5BDB950010A564 /* griptest */,
 				3716F3951A5BDB950010A564 /* griptestTests */,
 				3716F3831A5BDB950010A564 /* Products */,
+				F1ECCC790B150BA93E4CEC03 /* Pods */,
+				F616112CEC1EAAAD2EBB65E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -241,6 +253,23 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		F1ECCC790B150BA93E4CEC03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C1E5DD79CD47FAC555C8CDF /* Pods-griptest.debug.xcconfig */,
+				4AACC3E338C87A079EB074F2 /* Pods-griptest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F616112CEC1EAAAD2EBB65E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D55728FE61D176B0F123549 /* libPods-griptest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -248,9 +277,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3716F39C1A5BDB950010A564 /* Build configuration list for PBXNativeTarget "griptest" */;
 			buildPhases = (
+				CDBDE8C5D2CF8A31CE26A878 /* Check Pods Manifest.lock */,
 				3716F37E1A5BDB940010A564 /* Sources */,
 				3716F37F1A5BDB940010A564 /* Frameworks */,
 				3716F3801A5BDB940010A564 /* Resources */,
+				4FE1C13DB7F5347104636B24 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -338,11 +369,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4FE1C13DB7F5347104636B24 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-griptest/Pods-griptest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDBDE8C5D2CF8A31CE26A878 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3716F37E1A5BDB940010A564 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32CBFEC81B11BFAD00DFD661 /* TipsViewController.m in Sources */,
 				32E4182A1AA6FB2F002CC19D /* Queue.m in Sources */,
 				3219D7681AA6D72F009CB554 /* DataReceiver.m in Sources */,
 				37E327831A6A643F00D5137B /* User.m in Sources */,
@@ -463,6 +528,7 @@
 		};
 		3716F39D1A5BDB950010A564 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C1E5DD79CD47FAC555C8CDF /* Pods-griptest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -478,6 +544,7 @@
 		};
 		3716F39E1A5BDB950010A564 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AACC3E338C87A079EB074F2 /* Pods-griptest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

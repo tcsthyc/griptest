@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		48796D718C2838A75B241D3D /* Pods-griptest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0319248446DFBEB51A62F07B /* Pods-griptest-dummy.m */; };
+		6B9888FC50C2B3CDD6729DBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE27F35EA780973F6591702F /* Foundation.framework */; };
+		73578915C66029F8C59AC39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE27F35EA780973F6591702F /* Foundation.framework */; };
+		873326687163C36600C7F401 /* UIScrollView+SVInfiniteScrolling.h in Headers */ = {isa = PBXBuildFile; fileRef = F245C9C179A74E6654C66D90 /* UIScrollView+SVInfiniteScrolling.h */; };
+		8D4666E5CA9EBCF2E3E52F99 /* SVPullToRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = DEF843B10CED53021DA77E98 /* SVPullToRefresh.h */; };
+		95FA16BD59B50F6B83E4CABE /* Pods-griptest-SVPullToRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF5E8A2D0170746EA6AE6BC /* Pods-griptest-SVPullToRefresh-dummy.m */; };
+		C2D2B18A2DA1F944C8BF4C71 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 318CC533BDEE1AF9FB4DBFD2 /* UIScrollView+SVInfiniteScrolling.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DC8F2CE31AE799ADDE0C01E7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39D684168D69044ECE02B4E /* QuartzCore.framework */; };
+		E009BAE803300E2DE8062C7F /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 445A070DE6217098811D4B3D /* UIScrollView+SVPullToRefresh.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F8C39EB34865F321EEF27AE3 /* UIScrollView+SVPullToRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5A9E1AE2B2D4853768E0CC /* UIScrollView+SVPullToRefresh.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C832A8BC29A7788C1E054D0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FAFDA2D4A52235FC658C9C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72492955170084957E20B20D;
+			remoteInfo = "Pods-griptest-SVPullToRefresh";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0319248446DFBEB51A62F07B /* Pods-griptest-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-griptest-dummy.m"; sourceTree = "<group>"; };
+		152143483CE13239577753F0 /* Pods-griptest-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-griptest-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1B7F9DA481FC6E01C55DC962 /* libPods-griptest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-griptest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22D247F2FF82BC00B139FE59 /* Pods-griptest-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-griptest-resources.sh"; sourceTree = "<group>"; };
+		260CD832F313D170C9C8E6F9 /* Pods-griptest-SVPullToRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-griptest-SVPullToRefresh.xcconfig"; sourceTree = "<group>"; };
+		318CC533BDEE1AF9FB4DBFD2 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVInfiniteScrolling.m"; path = "SVPullToRefresh/UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		445A070DE6217098811D4B3D /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVPullToRefresh.m"; path = "SVPullToRefresh/UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		60053AEC4BB8FCCD983E2454 /* Pods-griptest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-griptest.debug.xcconfig"; sourceTree = "<group>"; };
+		6585639040ED39E909D7D58E /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		755C4EE9D8BFC733E2C3015A /* Pods-griptest-SVPullToRefresh-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-griptest-SVPullToRefresh-Private.xcconfig"; sourceTree = "<group>"; };
+		AE27F35EA780973F6591702F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C7B2CF26D01AC801CD609110 /* Pods-griptest-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-griptest-acknowledgements.plist"; sourceTree = "<group>"; };
+		CDF5E8A2D0170746EA6AE6BC /* Pods-griptest-SVPullToRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-griptest-SVPullToRefresh-dummy.m"; sourceTree = "<group>"; };
+		CE8F0CBCF2FC443D3A4F7C3B /* libPods-griptest-SVPullToRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-griptest-SVPullToRefresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D39D684168D69044ECE02B4E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		DEF843B10CED53021DA77E98 /* SVPullToRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVPullToRefresh.h; path = SVPullToRefresh/SVPullToRefresh.h; sourceTree = "<group>"; };
+		E8A13458DAA619BC272DEE64 /* Pods-griptest-SVPullToRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-griptest-SVPullToRefresh-prefix.pch"; sourceTree = "<group>"; };
+		F10B9DBF77E2BBB880583529 /* Pods-griptest-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-griptest-environment.h"; sourceTree = "<group>"; };
+		F245C9C179A74E6654C66D90 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVInfiniteScrolling.h"; path = "SVPullToRefresh/UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		F30475F2A068314800AFB98A /* Pods-griptest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-griptest.release.xcconfig"; sourceTree = "<group>"; };
+		FE5A9E1AE2B2D4853768E0CC /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVPullToRefresh.h"; path = "SVPullToRefresh/UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6A74321EB24BF02399C82A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73578915C66029F8C59AC39A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6E88E643EAF6869D068EFFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B9888FC50C2B3CDD6729DBE /* Foundation.framework in Frameworks */,
+				DC8F2CE31AE799ADDE0C01E7 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11DAAEFC1E075B79CC8EA81B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B7F9DA481FC6E01C55DC962 /* libPods-griptest.a */,
+				CE8F0CBCF2FC443D3A4F7C3B /* libPods-griptest-SVPullToRefresh.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2CC5231D512BBC0BB6274A06 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7288CF973F2E9F57BE4EF0C /* Pods-griptest */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		506912BD44CD4FE1D0CAABDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C03F2DAB55C184EC512A1B8E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BF0B37A545B84AAFBF5D7FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDD17E959900F927B6A9ED13 /* SVPullToRefresh */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B2717905EC0B9004CEE7C502 = {
+			isa = PBXGroup;
+			children = (
+				6585639040ED39E909D7D58E /* Podfile */,
+				506912BD44CD4FE1D0CAABDA /* Frameworks */,
+				9BF0B37A545B84AAFBF5D7FE /* Pods */,
+				11DAAEFC1E075B79CC8EA81B /* Products */,
+				2CC5231D512BBC0BB6274A06 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		C03F2DAB55C184EC512A1B8E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				AE27F35EA780973F6591702F /* Foundation.framework */,
+				D39D684168D69044ECE02B4E /* QuartzCore.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D5B49577F3CB67E534B03542 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				260CD832F313D170C9C8E6F9 /* Pods-griptest-SVPullToRefresh.xcconfig */,
+				755C4EE9D8BFC733E2C3015A /* Pods-griptest-SVPullToRefresh-Private.xcconfig */,
+				CDF5E8A2D0170746EA6AE6BC /* Pods-griptest-SVPullToRefresh-dummy.m */,
+				E8A13458DAA619BC272DEE64 /* Pods-griptest-SVPullToRefresh-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-griptest-SVPullToRefresh";
+			sourceTree = "<group>";
+		};
+		DDD17E959900F927B6A9ED13 /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				DEF843B10CED53021DA77E98 /* SVPullToRefresh.h */,
+				F245C9C179A74E6654C66D90 /* UIScrollView+SVInfiniteScrolling.h */,
+				318CC533BDEE1AF9FB4DBFD2 /* UIScrollView+SVInfiniteScrolling.m */,
+				FE5A9E1AE2B2D4853768E0CC /* UIScrollView+SVPullToRefresh.h */,
+				445A070DE6217098811D4B3D /* UIScrollView+SVPullToRefresh.m */,
+				D5B49577F3CB67E534B03542 /* Support Files */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
+		F7288CF973F2E9F57BE4EF0C /* Pods-griptest */ = {
+			isa = PBXGroup;
+			children = (
+				152143483CE13239577753F0 /* Pods-griptest-acknowledgements.markdown */,
+				C7B2CF26D01AC801CD609110 /* Pods-griptest-acknowledgements.plist */,
+				0319248446DFBEB51A62F07B /* Pods-griptest-dummy.m */,
+				F10B9DBF77E2BBB880583529 /* Pods-griptest-environment.h */,
+				22D247F2FF82BC00B139FE59 /* Pods-griptest-resources.sh */,
+				60053AEC4BB8FCCD983E2454 /* Pods-griptest.debug.xcconfig */,
+				F30475F2A068314800AFB98A /* Pods-griptest.release.xcconfig */,
+			);
+			name = "Pods-griptest";
+			path = "Target Support Files/Pods-griptest";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2B651E8B6B72881081BFDE92 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D4666E5CA9EBCF2E3E52F99 /* SVPullToRefresh.h in Headers */,
+				873326687163C36600C7F401 /* UIScrollView+SVInfiniteScrolling.h in Headers */,
+				F8C39EB34865F321EEF27AE3 /* UIScrollView+SVPullToRefresh.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2C3EE73F1C95381F4EEF2639 /* Pods-griptest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02D5031F7C341676E1A52492 /* Build configuration list for PBXNativeTarget "Pods-griptest" */;
+			buildPhases = (
+				2CAFD7EC1C7C662271796EBC /* Sources */,
+				C6A74321EB24BF02399C82A7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDDA30DB6CF8916F7B6A23BC /* PBXTargetDependency */,
+			);
+			name = "Pods-griptest";
+			productName = "Pods-griptest";
+			productReference = 1B7F9DA481FC6E01C55DC962 /* libPods-griptest.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		72492955170084957E20B20D /* Pods-griptest-SVPullToRefresh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01FDE4334A7382207C18D61F /* Build configuration list for PBXNativeTarget "Pods-griptest-SVPullToRefresh" */;
+			buildPhases = (
+				20654B27F6E3F64BFAF8378B /* Sources */,
+				C6E88E643EAF6869D068EFFA /* Frameworks */,
+				2B651E8B6B72881081BFDE92 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-griptest-SVPullToRefresh";
+			productName = "Pods-griptest-SVPullToRefresh";
+			productReference = CE8F0CBCF2FC443D3A4F7C3B /* libPods-griptest-SVPullToRefresh.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FAFDA2D4A52235FC658C9C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = E2AEE460333DF261D093B691 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B2717905EC0B9004CEE7C502;
+			productRefGroup = 11DAAEFC1E075B79CC8EA81B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C3EE73F1C95381F4EEF2639 /* Pods-griptest */,
+				72492955170084957E20B20D /* Pods-griptest-SVPullToRefresh */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20654B27F6E3F64BFAF8378B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95FA16BD59B50F6B83E4CABE /* Pods-griptest-SVPullToRefresh-dummy.m in Sources */,
+				C2D2B18A2DA1F944C8BF4C71 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				E009BAE803300E2DE8062C7F /* UIScrollView+SVPullToRefresh.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CAFD7EC1C7C662271796EBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48796D718C2838A75B241D3D /* Pods-griptest-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDDA30DB6CF8916F7B6A23BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-griptest-SVPullToRefresh";
+			target = 72492955170084957E20B20D /* Pods-griptest-SVPullToRefresh */;
+			targetProxy = C832A8BC29A7788C1E054D0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1BE930332E76267CA9192CC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		91F712566DB627F6F9CC9D89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 755C4EE9D8BFC733E2C3015A /* Pods-griptest-SVPullToRefresh-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-griptest-SVPullToRefresh/Pods-griptest-SVPullToRefresh-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A060D9601276E1D686454FDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60053AEC4BB8FCCD983E2454 /* Pods-griptest.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D8237BC27093D2323B3F1F13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 755C4EE9D8BFC733E2C3015A /* Pods-griptest-SVPullToRefresh-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-griptest-SVPullToRefresh/Pods-griptest-SVPullToRefresh-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DBA238F8D43ADE7C07FA910F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F30475F2A068314800AFB98A /* Pods-griptest.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F3EC653D9034721EC73BE73B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01FDE4334A7382207C18D61F /* Build configuration list for PBXNativeTarget "Pods-griptest-SVPullToRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8237BC27093D2323B3F1F13 /* Debug */,
+				91F712566DB627F6F9CC9D89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02D5031F7C341676E1A52492 /* Build configuration list for PBXNativeTarget "Pods-griptest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A060D9601276E1D686454FDC /* Debug */,
+				DBA238F8D43ADE7C07FA910F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2AEE460333DF261D093B691 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3EC653D9034721EC73BE73B /* Debug */,
+				1BE930332E76267CA9192CC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FAFDA2D4A52235FC658C9C9 /* Project object */;
+}

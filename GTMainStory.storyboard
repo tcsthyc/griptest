@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,32 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcM-xY-dmA">
-                                <rect key="frame" x="110" y="127" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="IUh-TI-YKO"/>
-                                    <constraint firstAttribute="height" constant="100" id="Lc1-De-ih7"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a demo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAZ-f6-bh1">
-                                <rect key="frame" x="115" y="241" width="91" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="z8M-RH-fYH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="oAZ-f6-bh1" secondAttribute="centerY" constant="0.5" id="0DW-sQ-7Zr"/>
-                            <constraint firstAttribute="centerX" secondItem="oAZ-f6-bh1" secondAttribute="centerX" constant="-0.5" id="m0V-IF-h7f"/>
-                            <constraint firstAttribute="centerY" secondItem="ZcM-xY-dmA" secondAttribute="centerY" constant="75" id="wM1-OJ-C61"/>
-                            <constraint firstAttribute="centerX" secondItem="ZcM-xY-dmA" secondAttribute="centerX" constant="-0.5" id="xpl-uz-7QS"/>
+                            <constraint firstItem="z8M-RH-fYH" firstAttribute="height" secondItem="zjd-pH-TkZ" secondAttribute="height" id="YCV-1x-VXn"/>
+                            <constraint firstItem="z8M-RH-fYH" firstAttribute="width" secondItem="zjd-pH-TkZ" secondAttribute="width" id="aUF-cU-1UI"/>
+                            <constraint firstAttribute="centerX" secondItem="z8M-RH-fYH" secondAttribute="centerX" id="c1X-Ro-bBJ"/>
+                            <constraint firstAttribute="centerY" secondItem="z8M-RH-fYH" secondAttribute="centerY" id="duo-PU-MTO"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="统计" image="statistic_tab_bar" id="zrP-p2-2Oj"/>
-                    <connections>
-                        <outlet property="mView" destination="ZcM-xY-dmA" id="B3G-7f-t4o"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bV8-hk-ONL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,7 +52,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a demo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fi1-XS-was">
                                 <rect key="frame" x="115" y="241" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -226,7 +215,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a demo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gT-39-GMW">
                                 <rect key="frame" x="115" y="241" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -245,7 +234,7 @@
         <!--设置-->
         <scene sceneID="wBy-5w-ZY3">
             <objects>
-                <viewController id="8QN-5j-aqG" sceneMemberID="viewController">
+                <viewController id="8QN-5j-aqG" customClass="TipsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="swf-O7-tP2"/>
                         <viewControllerLayoutGuide type="bottom" id="fY3-6a-4qh"/>
@@ -254,20 +243,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a demo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJb-MW-01x">
-                                <rect key="frame" x="115" y="241" width="91" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="reA-Lp-gNF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="xJb-MW-01x" secondAttribute="centerY" constant="0.5" id="V23-Tg-BeK"/>
-                            <constraint firstAttribute="centerX" secondItem="xJb-MW-01x" secondAttribute="centerX" id="VMR-oH-dhj"/>
+                            <constraint firstItem="reA-Lp-gNF" firstAttribute="height" secondItem="RLF-Vz-TC6" secondAttribute="height" id="FlT-h7-gbA"/>
+                            <constraint firstAttribute="centerX" secondItem="reA-Lp-gNF" secondAttribute="centerX" id="K5r-zt-PI2"/>
+                            <constraint firstAttribute="centerY" secondItem="reA-Lp-gNF" secondAttribute="centerY" id="dDD-iE-ypi"/>
+                            <constraint firstItem="reA-Lp-gNF" firstAttribute="width" secondItem="RLF-Vz-TC6" secondAttribute="width" id="dGO-Bg-Nc5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="设置" image="setting_tab_bar" id="Rw2-je-4ir"/>
+                    <connections>
+                        <outlet property="tipsTableView" destination="reA-Lp-gNF" id="LBX-3L-soy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoP-gP-H0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

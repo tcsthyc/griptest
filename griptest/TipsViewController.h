@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TipsViewController : UIViewController
+@interface TipsViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tipsTableView;
 
 @end

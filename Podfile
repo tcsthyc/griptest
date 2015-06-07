@@ -3,6 +3,7 @@ platform :ios, '7.0'
 
 target 'griptest' do
     pod 'SVPullToRefresh',:head
+    pod "AFNetworking", "~> 2.0"
 end
 
 target 'griptestTests' do

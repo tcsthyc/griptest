@@ -13,6 +13,8 @@
 		3219D76B1AA6DAC4009CB554 /* DataUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D76A1AA6DAC4009CB554 /* DataUnit.m */; };
 		3219D76E1AA6E078009CB554 /* BarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D76D1AA6E078009CB554 /* BarChart.m */; };
 		321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */; };
+		32950F371B2402FA001036EE /* APIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 32950F361B2402FA001036EE /* APIUtils.m */; };
+		32950F3A1B243574001036EE /* GripAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 32950F391B243574001036EE /* GripAPIResponse.m */; };
 		32C2200B1AA58B5C00986142 /* SignUpPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C2200A1AA58B5C00986142 /* SignUpPageViewController.m */; };
 		32C2200F1AA5A74100986142 /* InputWithIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C2200D1AA5A74100986142 /* InputWithIconTableViewCell.m */; };
 		32C220101AA5A74100986142 /* InputWithIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32C2200E1AA5A74100986142 /* InputWithIconTableViewCell.xib */; };
@@ -62,6 +64,10 @@
 		3219D76D1AA6E078009CB554 /* BarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChart.m; sourceTree = "<group>"; };
 		321DAD5A1AA8441E00DFEAB4 /* MeasureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
+		32950F351B2402FA001036EE /* APIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIUtils.h; sourceTree = "<group>"; };
+		32950F361B2402FA001036EE /* APIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIUtils.m; sourceTree = "<group>"; };
+		32950F381B243574001036EE /* GripAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GripAPIResponse.h; sourceTree = "<group>"; };
+		32950F391B243574001036EE /* GripAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GripAPIResponse.m; sourceTree = "<group>"; };
 		32C220091AA58B5C00986142 /* SignUpPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpPageViewController.h; sourceTree = "<group>"; };
 		32C2200A1AA58B5C00986142 /* SignUpPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpPageViewController.m; sourceTree = "<group>"; };
 		32C2200C1AA5A74100986142 /* InputWithIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputWithIconTableViewCell.h; sourceTree = "<group>"; };
@@ -131,6 +137,8 @@
 				32E418291AA6FB2F002CC19D /* Queue.m */,
 				3798ED8A1AADDF67000F37B5 /* GripForceCalculator.h */,
 				3798ED8B1AADDF67000F37B5 /* GripForceCalculator.m */,
+				32950F351B2402FA001036EE /* APIUtils.h */,
+				32950F361B2402FA001036EE /* APIUtils.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -248,6 +256,8 @@
 				37E327821A6A643F00D5137B /* User.m */,
 				3219D7691AA6DAC4009CB554 /* DataUnit.h */,
 				3219D76A1AA6DAC4009CB554 /* DataUnit.m */,
+				32950F381B243574001036EE /* GripAPIResponse.h */,
+				32950F391B243574001036EE /* GripAPIResponse.m */,
 			);
 			name = Models;
 			path = ..;
@@ -419,10 +429,12 @@
 				3774EB591AAC07B6008CF39D /* TabBarRootViewController.m in Sources */,
 				3774EB5E1AAC3A82008CF39D /* OperationButton.m in Sources */,
 				3219D76E1AA6E078009CB554 /* BarChart.m in Sources */,
+				32950F371B2402FA001036EE /* APIUtils.m in Sources */,
 				3799AC851A67AAC9000C7280 /* GTUserModel.xcdatamodeld in Sources */,
 				3219D7641AA6A6C1009CB554 /* UserHeightAndWeightSelectVC.m in Sources */,
 				32DEACC91AA45AEA00B4E5F1 /* SignInPageViewController.m in Sources */,
 				32DEACC61AA4556A00B4E5F1 /* LoginInfoTableViewCell.m in Sources */,
+				32950F3A1B243574001036EE /* GripAPIResponse.m in Sources */,
 				32C2200B1AA58B5C00986142 /* SignUpPageViewController.m in Sources */,
 				3716F3881A5BDB950010A564 /* main.m in Sources */,
 				3219D76B1AA6DAC4009CB554 /* DataUnit.m in Sources */,

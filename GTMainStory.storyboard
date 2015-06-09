@@ -212,42 +212,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="109" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4X8-i5-0Va">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="110" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4X8-i5-0Va">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tipCell" rowHeight="109" id="sKI-Bh-3xe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tipCell" id="sKI-Bh-3xe" customClass="TipCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sKI-Bh-3xe" id="w7n-O7-Prk">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="q" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqq-BC-heA">
-                                                    <rect key="frame" x="8" y="8" width="244" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="q" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqq-BC-heA">
+                                                    <rect key="frame" x="9" y="16" width="250" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="ek2-j6-7Nz"/>
+                                                        <constraint firstAttribute="height" constant="30" id="Ep3-5f-eaT"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76f-cw-FXQ">
-                                                    <rect key="frame" x="8" y="46" width="304" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76f-cw-FXQ">
+                                                    <rect key="frame" x="9" y="54" width="295" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Iqq-BC-heA" firstAttribute="leading" secondItem="w7n-O7-Prk" secondAttribute="leadingMargin" id="5CK-kj-qAj"/>
-                                                <constraint firstItem="Iqq-BC-heA" firstAttribute="top" secondItem="w7n-O7-Prk" secondAttribute="topMargin" id="Bh5-fH-SFZ"/>
-                                                <constraint firstItem="76f-cw-FXQ" firstAttribute="trailing" secondItem="w7n-O7-Prk" secondAttribute="trailingMargin" id="LlM-nr-abt"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Iqq-BC-heA" secondAttribute="trailing" constant="60" id="PiB-qA-Xkt"/>
-                                                <constraint firstItem="76f-cw-FXQ" firstAttribute="leading" secondItem="w7n-O7-Prk" secondAttribute="leadingMargin" id="shP-v4-FTf"/>
-                                                <constraint firstItem="76f-cw-FXQ" firstAttribute="top" secondItem="Iqq-BC-heA" secondAttribute="bottom" constant="8" id="ulc-cd-7Oj"/>
+                                                <constraint firstItem="Iqq-BC-heA" firstAttribute="leading" secondItem="w7n-O7-Prk" secondAttribute="leadingMargin" constant="1" id="4NF-G3-aSv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Iqq-BC-heA" secondAttribute="trailing" constant="53" id="69m-gS-mhh"/>
+                                                <constraint firstItem="Iqq-BC-heA" firstAttribute="top" secondItem="w7n-O7-Prk" secondAttribute="topMargin" constant="8" id="NVJ-ki-2ap"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="76f-cw-FXQ" secondAttribute="bottom" id="R9N-gR-jOg"/>
+                                                <constraint firstItem="76f-cw-FXQ" firstAttribute="leading" secondItem="Iqq-BC-heA" secondAttribute="leading" id="pYa-wk-mr0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="76f-cw-FXQ" secondAttribute="trailing" constant="8" id="uN4-NL-CiQ"/>
+                                                <constraint firstItem="76f-cw-FXQ" firstAttribute="top" secondItem="Iqq-BC-heA" secondAttribute="bottom" constant="8" id="yGL-a0-aj7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90013384650350536" green="0.90658408717105265" blue="0.90250677000265822" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="cLabel" destination="76f-cw-FXQ" id="gZK-vt-3mI"/>
+                                            <outlet property="qLabel" destination="Iqq-BC-heA" id="znE-X3-wdp"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

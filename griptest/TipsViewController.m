@@ -10,6 +10,7 @@
 #import "SVPullToRefresh.h"
 #import "APIUtils.h"
 #import "AFNetworking.h"
+#import "TipCell.h"
 
 @interface TipsViewController ()
 
@@ -21,12 +22,16 @@
 AFHTTPRequestOperationManager *httpManager;
 NSMutableArray *tipsArray;
 NSInteger page;
+TipCell *baseCell;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    tipsArray = [[NSMutableArray alloc] initWithCapacity:10];
-     httpManager = [AFHTTPRequestOperationManager manager];
+//    tipsArray = [[NSMutableArray alloc] initWithCapacity:10];
+    baseCell = [self.tipsTableView dequeueReusableCellWithIdentifier:@"tipCell"];
+    tipsArray = [NSMutableArray array];
+    httpManager = [AFHTTPRequestOperationManager manager];
     
     
     __weak TipsViewController *weakSelf = self;
@@ -36,7 +41,7 @@ NSInteger page;
     [tipsTableView addPullToRefreshWithActionHandler:^{
         [weakSelf insertRowAtBottom];
     } position:SVPullToRefreshPositionBottom];
-    tipsTableView.showsInfiniteScrolling=NO;
+    tipsTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [tipsTableView triggerPullToRefresh];
     
 }
@@ -109,12 +114,16 @@ NSInteger page;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"tipCell";
-    UITableViewCell *cell = [self.tipsTableView dequeueReusableCellWithIdentifier:identifier];
+    TipCell *cell = [self.tipsTableView dequeueReusableCellWithIdentifier:identifier];
     
     if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[TipCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    
+    [self loadCellContent:cell atIndexPath:indexPath];
+    return cell;
+}
+
+-(void)loadCellContent:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     UILabel *qLabel=(UILabel*)[cell viewWithTag:1];
     UILabel *contentLabel=(UILabel*)[cell viewWithTag:2];
     id tipItem = [tipsArray objectAtIndex:indexPath.row];
@@ -123,16 +132,27 @@ NSInteger page;
     NSString *content=[NSString stringWithFormat:@"%@\n%@",qStr,aStr];
     qLabel.text=[tipItem valueForKey:@"title"];
     contentLabel.text= content;
-    CGRect cellFrame = [cell frame];
-    cellFrame.size.height = qLabel.frame.size.height + contentLabel.frame.size.height + 24;
+   //    CGSize c_size = [contentLabel sizeThatFits:CGSizeMake(contentLabel.frame.size.width, MAXFLOAT)];
+//    contentLabel.frame = CGRectMake(contentLabel.frame.origin.x, contentLabel.frame.origin.y, contentLabel.frame.size.width, c_size.height);
+//    [contentLabel sizeToFit];
+//    [contentLabel setPreferredMaxLayoutWidth:[UIScreen mainScreen].bounds.size.width-16];
+//    [qLabel setPreferredMaxLayoutWidth:[UIScreen mainScreen].bounds.size.width-61];
+//    [contentLabel layoutIfNeeded];
+//    [qLabel layoutIfNeeded];
+    [cell layoutSubviews];
     
-    return cell;
+    NSLog(@"lable height: %f,%f",qLabel.frame.size.height,contentLabel.frame.size.height);
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-//    return cell.frame.size.height;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = baseCell;
+    [self loadCellContent:cell atIndexPath:indexPath];
+//    [cell.contentView layoutIfNeeded];
+//    [cell updateConstraints];
+    CGSize size=[cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    NSLog(@"heightforrow: %f",1+size.height);
+    return 1+size.height;
+}
 
 -(void)updateTableView:(NSInteger)count{
     [tipsTableView beginUpdates];
@@ -142,7 +162,6 @@ NSInteger page;
     }
     [tipsTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
     [tipsTableView endUpdates];
-//    [tipsTableView.infiniteScrollingView stopAnimating];
     [tipsTableView.pullToRefreshView stopAnimating];
 
 }

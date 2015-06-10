@@ -13,10 +13,11 @@
 		3219D76B1AA6DAC4009CB554 /* DataUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D76A1AA6DAC4009CB554 /* DataUnit.m */; };
 		3219D76E1AA6E078009CB554 /* BarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D76D1AA6E078009CB554 /* BarChart.m */; };
 		321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */; };
+		327F8ABD1B2895D70014080A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 327F8ABC1B2895D70014080A /* InfoViewController.m */; };
+		327F8AC31B28968F0014080A /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 327F8AC21B28968F0014080A /* SettingsTableViewController.m */; };
 		32950F371B2402FA001036EE /* APIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 32950F361B2402FA001036EE /* APIUtils.m */; };
 		32950F3A1B243574001036EE /* GripAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 32950F391B243574001036EE /* GripAPIResponse.m */; };
 		3298C0571B2663E80005F076 /* TipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3298C0561B2663E80005F076 /* TipCell.m */; };
-		3298C0591B2664B70005F076 /* TipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3298C0581B2664B70005F076 /* TipCell.xib */; };
 		32C2200B1AA58B5C00986142 /* SignUpPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C2200A1AA58B5C00986142 /* SignUpPageViewController.m */; };
 		32C2200F1AA5A74100986142 /* InputWithIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C2200D1AA5A74100986142 /* InputWithIconTableViewCell.m */; };
 		32C220101AA5A74100986142 /* InputWithIconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32C2200E1AA5A74100986142 /* InputWithIconTableViewCell.xib */; };
@@ -66,13 +67,16 @@
 		3219D76D1AA6E078009CB554 /* BarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChart.m; sourceTree = "<group>"; };
 		321DAD5A1AA8441E00DFEAB4 /* MeasureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
+		327F8ABB1B2895D70014080A /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		327F8ABC1B2895D70014080A /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		327F8AC11B28968F0014080A /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		327F8AC21B28968F0014080A /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		32950F351B2402FA001036EE /* APIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIUtils.h; sourceTree = "<group>"; };
 		32950F361B2402FA001036EE /* APIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIUtils.m; sourceTree = "<group>"; };
 		32950F381B243574001036EE /* GripAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GripAPIResponse.h; sourceTree = "<group>"; };
 		32950F391B243574001036EE /* GripAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GripAPIResponse.m; sourceTree = "<group>"; };
 		3298C0551B2663E80005F076 /* TipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipCell.h; sourceTree = "<group>"; };
 		3298C0561B2663E80005F076 /* TipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipCell.m; sourceTree = "<group>"; };
-		3298C0581B2664B70005F076 /* TipCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipCell.xib; sourceTree = "<group>"; };
 		32C220091AA58B5C00986142 /* SignUpPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpPageViewController.h; sourceTree = "<group>"; };
 		32C2200A1AA58B5C00986142 /* SignUpPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpPageViewController.m; sourceTree = "<group>"; };
 		32C2200C1AA5A74100986142 /* InputWithIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputWithIconTableViewCell.h; sourceTree = "<group>"; };
@@ -167,6 +171,10 @@
 				3774EB601AAC3DFF008CF39D /* StatViewController.m */,
 				32CBFEC61B11BFAD00DFD661 /* TipsViewController.h */,
 				32CBFEC71B11BFAD00DFD661 /* TipsViewController.m */,
+				327F8ABB1B2895D70014080A /* InfoViewController.h */,
+				327F8ABC1B2895D70014080A /* InfoViewController.m */,
+				327F8AC11B28968F0014080A /* SettingsTableViewController.h */,
+				327F8AC21B28968F0014080A /* SettingsTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -188,7 +196,6 @@
 				3774EB5D1AAC3A82008CF39D /* OperationButton.m */,
 				3298C0551B2663E80005F076 /* TipCell.h */,
 				3298C0561B2663E80005F076 /* TipCell.m */,
-				3298C0581B2664B70005F076 /* TipCell.xib */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -375,7 +382,6 @@
 				3716F38D1A5BDB950010A564 /* Images.xcassets in Resources */,
 				37E327801A6A623200D5137B /* Launch Screen.xib in Resources */,
 				32C220101AA5A74100986142 /* InputWithIconTableViewCell.xib in Resources */,
-				3298C0591B2664B70005F076 /* TipCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +440,7 @@
 				321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */,
 				3716F38B1A5BDB950010A564 /* AppDelegate.m in Sources */,
 				3219D7611AA6A685009CB554 /* UserSexAndBdSelectVC.m in Sources */,
+				327F8AC31B28968F0014080A /* SettingsTableViewController.m in Sources */,
 				3798ED8C1AADDF67000F37B5 /* GripForceCalculator.m in Sources */,
 				3298C0571B2663E80005F076 /* TipCell.m in Sources */,
 				3774EB591AAC07B6008CF39D /* TabBarRootViewController.m in Sources */,
@@ -449,6 +456,7 @@
 				3716F3881A5BDB950010A564 /* main.m in Sources */,
 				3219D76B1AA6DAC4009CB554 /* DataUnit.m in Sources */,
 				32C2200F1AA5A74100986142 /* InputWithIconTableViewCell.m in Sources */,
+				327F8ABD1B2895D70014080A /* InfoViewController.m in Sources */,
 				32C220131AA5B68D00986142 /* CircleImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

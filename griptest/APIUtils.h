@@ -10,6 +10,8 @@
 
 @interface APIUtils : NSObject
 
++(NSString*)apiAddress: (NSString*)name;
+
 +(NSString*)getTipsURL;
 +(NSString*)getTipsURLWithParams:(NSMutableDictionary*) params;
 

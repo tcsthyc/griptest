@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"GTMainStory" bundle: nil ];
-    NSString *initialVCId=[self isLoggedIn]?@"contentRootVC":@"loginVC";
+    NSString *initialVCId=[self isLoggedIn]?@"rootTabViewVC":@"loginVC";
     UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:initialVCId];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];

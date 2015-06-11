@@ -7,6 +7,7 @@
 //
 
 #import "InfoViewController.h"
+#import "APIUtils.h"
 
 @interface InfoViewController ()
 
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = query;
-//    [self initWebView];
+    [self initWebView];
     
 }
 
@@ -32,7 +33,9 @@
 
 #pragma mark - webview
 -(void)initWebView{
-    NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    NSString *targetAddress = [NSString stringWithFormat:@"info?page=%@",[query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSString *infoPageAddress = [APIUtils apiAddress:targetAddress];
+    NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:infoPageAddress]];
     [infoWebView loadRequest:request];
 }
 

@@ -5,6 +5,7 @@ target 'griptest' do
     pod 'SVPullToRefresh',:head
     pod "AFNetworking", "~> 2.0"
     pod 'THCalendarDatePicker','~>1.1.0'
+    pod 'PNChart', :head
 end
 
 target 'griptestTests' do

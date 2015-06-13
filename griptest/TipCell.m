@@ -11,6 +11,7 @@
 @implementation TipCell
 @synthesize qLabel;
 @synthesize cLabel;
+@synthesize marginBlock;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -19,7 +20,6 @@
     self.qLabel.preferredMaxLayoutWidth = availableLabelWidth;
     availableLabelWidth = self.cLabel.frame.size.width;
     self.cLabel.preferredMaxLayoutWidth = availableLabelWidth;
-    
     [super layoutSubviews];
 }
 

@@ -28,21 +28,28 @@ TipCell *baseCell;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    tipsArray = [[NSMutableArray alloc] initWithCapacity:10];
     baseCell = [self.tipsTableView dequeueReusableCellWithIdentifier:@"tipCell"];
     tipsArray = [NSMutableArray array];
     httpManager = [AFHTTPRequestOperationManager manager];
     
-    
     __weak TipsViewController *weakSelf = self;
+    
     [tipsTableView addPullToRefreshWithActionHandler:^{
         [weakSelf insertRowAtTop];
     }];
-    [tipsTableView addPullToRefreshWithActionHandler:^{
-        [weakSelf insertRowAtBottom];
-    } position:SVPullToRefreshPositionBottom];
+
     tipsTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [tipsTableView.pullToRefreshView setTitle:@"更新完成" forState:SVPullToRefreshStateStopped];
+    [tipsTableView.pullToRefreshView setTitle:@"更新全部" forState:SVPullToRefreshStateTriggered];
+    [tipsTableView.pullToRefreshView setTitle:@"获取中" forState:SVPullToRefreshStateLoading];
+    
     [tipsTableView triggerPullToRefresh];
+    
+    [tipsTableView addInfiniteScrollingWithActionHandler:^{
+        [weakSelf insertRowAtBottom];
+    }];
+    
     
 }
 
@@ -72,14 +79,15 @@ TipCell *baseCell;
             [tipsTableView reloadData];
             [tipsArray addObjectsFromArray:data];
             [weakSelf updateTableView:data.count];
+            [weakSelf.tipsTableView.pullToRefreshView stopAnimating];
         }
         else{
             NSLog(@"internal error: %@",[responseObject valueForKey:@"error"]);
-            [weakSelf.tipsTableView.infiniteScrollingView stopAnimating];
+            [weakSelf.tipsTableView.pullToRefreshView stopAnimating];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        [weakSelf.tipsTableView.infiniteScrollingView stopAnimating];
+        [weakSelf.tipsTableView.pullToRefreshView stopAnimating];
     }];
     
 }
@@ -92,6 +100,7 @@ TipCell *baseCell;
             NSArray *data = [responseObject valueForKey:@"data"];
             [tipsArray addObjectsFromArray:data];
             [weakSelf updateTableView:data.count];
+            [weakSelf.tipsTableView.infiniteScrollingView stopAnimating];
         }
         else{
             NSLog(@"internal error: %@",[responseObject valueForKey:@"error"]);
@@ -140,6 +149,9 @@ TipCell *baseCell;
 //    [contentLabel layoutIfNeeded];
 //    [qLabel layoutIfNeeded];
     [cell layoutSubviews];
+    UIView *marginView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, tipsTableView.frame.size.width, 9)];
+    marginView.backgroundColor = [UIColor whiteColor];
+    [cell addSubview:marginView];
     
     NSLog(@"lable height: %f,%f",qLabel.frame.size.height,contentLabel.frame.size.height);
 }
@@ -162,8 +174,6 @@ TipCell *baseCell;
     }
     [tipsTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
     [tipsTableView endUpdates];
-    [tipsTableView.pullToRefreshView stopAnimating];
-
 }
 
 

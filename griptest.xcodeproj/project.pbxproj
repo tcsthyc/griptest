@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32188E261B2C60FD0082EB7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32188E251B2C60FD0082EB7B /* CoreGraphics.framework */; };
+		32188E281B2C611E0082EB7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32188E271B2C611E0082EB7B /* QuartzCore.framework */; };
 		3219D7611AA6A685009CB554 /* UserSexAndBdSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D7601AA6A685009CB554 /* UserSexAndBdSelectVC.m */; };
 		3219D7641AA6A6C1009CB554 /* UserHeightAndWeightSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D7631AA6A6C1009CB554 /* UserHeightAndWeightSelectVC.m */; };
 		3219D7681AA6D72F009CB554 /* DataReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D7671AA6D72F009CB554 /* DataReceiver.m */; };
@@ -15,6 +17,7 @@
 		321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */; };
 		327F8ABD1B2895D70014080A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 327F8ABC1B2895D70014080A /* InfoViewController.m */; };
 		327F8AC31B28968F0014080A /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 327F8AC21B28968F0014080A /* SettingsTableViewController.m */; };
+		3284F9491B2BF54B00B14773 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3284F9481B2BF54B00B14773 /* Localizable.strings */; };
 		32950F371B2402FA001036EE /* APIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 32950F361B2402FA001036EE /* APIUtils.m */; };
 		32950F3A1B243574001036EE /* GripAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 32950F391B243574001036EE /* GripAPIResponse.m */; };
 		3298C0571B2663E80005F076 /* TipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3298C0561B2663E80005F076 /* TipCell.m */; };
@@ -55,6 +58,8 @@
 /* Begin PBXFileReference section */
 		0C1E5DD79CD47FAC555C8CDF /* Pods-griptest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-griptest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-griptest/Pods-griptest.debug.xcconfig"; sourceTree = "<group>"; };
 		0D55728FE61D176B0F123549 /* libPods-griptest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-griptest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32188E251B2C60FD0082EB7B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		32188E271B2C611E0082EB7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3219D75F1AA6A685009CB554 /* UserSexAndBdSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSexAndBdSelectVC.h; sourceTree = "<group>"; };
 		3219D7601AA6A685009CB554 /* UserSexAndBdSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSexAndBdSelectVC.m; sourceTree = "<group>"; };
 		3219D7621AA6A6C1009CB554 /* UserHeightAndWeightSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHeightAndWeightSelectVC.h; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 		327F8ABC1B2895D70014080A /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		327F8AC11B28968F0014080A /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		327F8AC21B28968F0014080A /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		3284F9471B2BF54B00B14773 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/Localizable.strings; sourceTree = "<group>"; };
 		32950F351B2402FA001036EE /* APIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIUtils.h; sourceTree = "<group>"; };
 		32950F361B2402FA001036EE /* APIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIUtils.m; sourceTree = "<group>"; };
 		32950F381B243574001036EE /* GripAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GripAPIResponse.h; sourceTree = "<group>"; };
@@ -123,6 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32188E281B2C611E0082EB7B /* QuartzCore.framework in Frameworks */,
+				32188E261B2C60FD0082EB7B /* CoreGraphics.framework in Frameworks */,
 				FD985830E4E54714E865835D /* libPods-griptest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +211,7 @@
 		3716F3791A5BDB940010A564 = {
 			isa = PBXGroup;
 			children = (
+				3284F9481B2BF54B00B14773 /* Localizable.strings */,
 				3716F3841A5BDB950010A564 /* griptest */,
 				3716F3951A5BDB950010A564 /* griptestTests */,
 				3716F3831A5BDB950010A564 /* Products */,
@@ -290,6 +299,8 @@
 		F616112CEC1EAAAD2EBB65E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32188E271B2C611E0082EB7B /* QuartzCore.framework */,
+				32188E251B2C60FD0082EB7B /* CoreGraphics.framework */,
 				0D55728FE61D176B0F123549 /* libPods-griptest.a */,
 			);
 			name = Frameworks;
@@ -378,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				375086D51A6116550053689B /* GTMainStory.storyboard in Resources */,
+				3284F9491B2BF54B00B14773 /* Localizable.strings in Resources */,
 				3774EB5B1AAC0DCB008CF39D /* OperationButton.xib in Resources */,
 				3716F38D1A5BDB950010A564 /* Images.xcassets in Resources */,
 				37E327801A6A623200D5137B /* Launch Screen.xib in Resources */,
@@ -478,6 +490,18 @@
 			targetProxy = 3716F3931A5BDB950010A564 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3284F9481B2BF54B00B14773 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3284F9471B2BF54B00B14773 /* zh */,
+			);
+			name = Localizable.strings;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3716F39A1A5BDB950010A564 /* Debug */ = {

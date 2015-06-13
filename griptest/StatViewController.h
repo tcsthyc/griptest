@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "OperationButton.h"
-@interface StatViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *mView;
+#import "THDatePickerViewController.h"
+#import "PNChartDelegate.h"
+#import "PNChart.h"
+
+@interface StatViewController : UIViewController <THDatePickerDelegate>
+
+@property (nonatomic, strong) THDatePickerViewController * datePicker;
+@property (weak, nonatomic) IBOutlet PNBarChart *barChart;
+
+- (IBAction)calenderBtnClicked:(id)sender;
 
 @end

@@ -21,19 +21,25 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - KNSemiModalViewController (0.3)
+  - PNChart (HEAD based on 0.8.3):
+    - UICountingLabel (~> 1.2.0)
   - SVPullToRefresh (HEAD based on 0.4.1)
   - THCalendarDatePicker (1.1.0):
     - KNSemiModalViewController (~> 0.3)
+  - UICountingLabel (1.2.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - PNChart (HEAD)
   - SVPullToRefresh (HEAD)
   - THCalendarDatePicker (~> 1.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
+  PNChart: 8d81e061ec4845915184755d8da84f385ca1cb28
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   THCalendarDatePicker: 26aa8cd2d5897bbdfa2fa29564e386c06f878103
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
 
 COCOAPODS: 0.37.2

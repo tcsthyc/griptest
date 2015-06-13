@@ -11,5 +11,6 @@
 @interface TipCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *qLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cLabel;
+@property (weak, nonatomic) IBOutlet UIView *marginBlock;
 
 @end

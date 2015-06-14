@@ -7,13 +7,20 @@
 //
 
 #import "StatViewController.h"
+#import "AFNetworking.h"
+#import "APIUtils.h"
+
+#define BarColorBlue [UIColor colorWithRed:58 / 255.0 green:123 / 255.0 blue:195 / 255.0 alpha:1.0f]
 
 @interface StatViewController ()
 @property (nonatomic, retain) NSDate * curDate;
 @property (nonatomic, retain) NSDateFormatter * formatter;
+@property (nonatomic, retain) AFHTTPRequestOperationManager *httpManager;
 @end
 
 @implementation StatViewController
+
+
 
 OperationButton *btn;
 @synthesize barChart;
@@ -22,15 +29,22 @@ OperationButton *btn;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.httpManager = [AFHTTPRequestOperationManager manager];
     self.curDate = [NSDate date];
     self.formatter = [[NSDateFormatter alloc] init];
-    [_formatter setDateFormat:@"dd/MM/yyyy --- HH:mm"];
+    [_formatter setDateFormat:@"yyyy/MM/dd"];
     [self refreshTitle];
     [self initBarChart];
+    [self requestDataOfDay:self.curDate];
 }
 
 -(void)refreshTitle {
-    self.navigationItem.title = [_formatter stringFromDate:_curDate];
+    if([self isSameDay: self.curDate]){
+        self.navigationItem.title = @"今天";
+    }
+    else{
+        self.navigationItem.title = [_formatter stringFromDate:_curDate];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,15 +58,7 @@ OperationButton *btn;
 
     label.text=[NSString stringWithFormat:@"%d",[label.text intValue]+1];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - date picker
 
@@ -100,9 +106,23 @@ OperationButton *btn;
     NSLog(@"Date selected: %@",[_formatter stringFromDate:selectedDate]);
 }
 
+-(Boolean)isSameDay: (NSDate *)otherDate{
+    double timezoneFix = [NSTimeZone localTimeZone].secondsFromGMT;
+    if (
+        (int)(([otherDate timeIntervalSince1970] + timezoneFix)/(24*3600)) -
+        (int)(([[NSDate date] timeIntervalSince1970] + timezoneFix)/(24*3600))
+        == 0)
+    {
+        return YES;
+    }
+    else{
+        return NO;
+    }
+}
+
 #pragma mark - bar chart
 - (void) initBarChart{
-//    self.barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0)];
+    self.barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(10, 200, [UIScreen mainScreen].applicationFrame.size.width-20,[UIScreen mainScreen].applicationFrame.size.height-300)];
     self.barChart.backgroundColor = [UIColor clearColor];
     self.barChart.yLabelFormatter = ^(CGFloat yValue){
         CGFloat yValueParsed = yValue;
@@ -111,17 +131,42 @@ OperationButton *btn;
     };
     self.barChart.labelMarginTop = 5.0;
     self.barChart.showChartBorder = YES;
-    [self.barChart setXLabels:@[@"2",@"3",@"4",@"5",@"2",@"3",@"4",@"5"]];
-    //       self.barChart.yLabels = @[@-10,@0,@10];
-    [self.barChart setYValues:@[@10.82,@1.88,@6.96,@33.93,@10.82,@1.88,@6.96,@33.93]];
-    [self.barChart setStrokeColors:@[PNGreen,PNGreen,PNRed,PNGreen,PNGreen,PNGreen,PNRed,PNGreen]];
+    [self.barChart setXLabels:@[@"食指",@"中指",@"无名指",@"小指"]];
+    [self.barChart setYMaxValue:20.f];
+    [self.barChart setYValues:@[@0,@0,@0,@0]];
+    [self.barChart setStrokeColors:@[BarColorBlue,BarColorBlue,BarColorBlue,BarColorBlue]];
     self.barChart.isGradientShow = NO;
-    self.barChart.isShowNumbers = NO;
+    self.barChart.isShowNumbers = YES;
     [self.barChart strokeChart];
     
     self.barChart.delegate = self;
+    [self.view addSubview:self.barChart];
+}
+
+#pragma mark - request data & update ui
+-(void) requestDataOfDay: (NSDate *)date{
+    NSDictionary *params = @{@"date": [NSNumber numberWithDouble:date.timeIntervalSince1970],
+                             @"user": @"",
+                             @"pswd": @""
+                             };
+    [self.httpManager GET:[APIUtils apiAddress:@"historicalData"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([responseObject valueForKey:@"succeed"]){
+            NSDictionary *data = [responseObject valueForKey:@"data"];
+            [self.barChart updateChartData:@[[data valueForKey:@"index"],[data valueForKey:@"middle"],[data valueForKey:@"ring"],[data valueForKey:@"little"]]];
+            [self updateLabelsWithData:data];
+        }
+        else{
+            NSLog(@"internal error: %@",[responseObject valueForKey:@"error"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+//    [self.barChart updateChartData:@[@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30)]];
+}
+
+//TODO:update lables
+-(void)updateLabelsWithData:(NSDictionary *)data{
     
-//    [self.view addSubview:self.barChart];
 }
 
 @end

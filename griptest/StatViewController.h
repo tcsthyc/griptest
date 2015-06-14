@@ -15,7 +15,7 @@
 @interface StatViewController : UIViewController <THDatePickerDelegate>
 
 @property (nonatomic, strong) THDatePickerViewController * datePicker;
-@property (weak, nonatomic) IBOutlet PNBarChart *barChart;
+@property (nonatomic) IBOutlet PNBarChart *barChart;
 
 - (IBAction)calenderBtnClicked:(id)sender;
 

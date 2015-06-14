@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GripAPIResponse : NSObject
-@property(nonatomic,readwrite) Boolean succeed;
-@property(nonatomic,readwrite) NSArray *data;
-@property(nonatomic,readwrite) NSString *error;
+//@property(nonatomic,readwrite) Boolean succeed;
+//@property(nonatomic,readwrite) NSArray *data;
+//@property(nonatomic,readwrite) NSString *error;
 @end

@@ -62,6 +62,18 @@
                                     <constraint firstAttribute="height" constant="96" id="vUA-sh-V50"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="综合握力" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ae-1N-Du9">
+                                <rect key="frame" x="126" y="109" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X90-Gq-JOr">
+                                <rect key="frame" x="126" y="138" width="68" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -69,15 +81,21 @@
                             <constraint firstItem="SXm-Ti-a4d" firstAttribute="leading" secondItem="KR6-fs-t3z" secondAttribute="trailing" constant="40" id="8fA-Gd-Wvu"/>
                             <constraint firstItem="rng-hc-q6j" firstAttribute="centerX" secondItem="SXm-Ti-a4d" secondAttribute="centerX" id="Gn6-gv-4Q6"/>
                             <constraint firstItem="G0m-ss-O2j" firstAttribute="centerX" secondItem="wVr-Fo-Mi8" secondAttribute="centerX" id="KPd-Jf-R4u"/>
+                            <constraint firstItem="X90-Gq-JOr" firstAttribute="leading" secondItem="8ae-1N-Du9" secondAttribute="leading" id="TJR-TR-s1P"/>
                             <constraint firstAttribute="centerX" secondItem="KkX-iz-M7r" secondAttribute="centerX" id="VoY-km-PRd"/>
                             <constraint firstItem="rng-hc-q6j" firstAttribute="top" secondItem="SXm-Ti-a4d" secondAttribute="bottom" constant="8" id="YaD-ji-8cc"/>
+                            <constraint firstItem="X90-Gq-JOr" firstAttribute="top" secondItem="8ae-1N-Du9" secondAttribute="top" constant="29" id="Ydq-Ti-13Z"/>
+                            <constraint firstItem="8ae-1N-Du9" firstAttribute="top" secondItem="KkX-iz-M7r" secondAttribute="top" constant="22" id="bjm-Dr-eqY"/>
+                            <constraint firstItem="X90-Gq-JOr" firstAttribute="trailing" secondItem="8ae-1N-Du9" secondAttribute="trailing" id="g5G-rG-P1T"/>
                             <constraint firstItem="G0m-ss-O2j" firstAttribute="centerY" secondItem="SXm-Ti-a4d" secondAttribute="centerY" id="jcR-PY-mQ3"/>
+                            <constraint firstItem="X90-Gq-JOr" firstAttribute="centerX" secondItem="KkX-iz-M7r" secondAttribute="centerX" id="mVw-Mu-A3j"/>
                             <constraint firstItem="SXm-Ti-a4d" firstAttribute="top" secondItem="a2t-Nx-xAs" secondAttribute="bottom" constant="25" id="oOV-LN-gNI"/>
                             <constraint firstItem="KR6-fs-t3z" firstAttribute="centerY" secondItem="SXm-Ti-a4d" secondAttribute="centerY" id="ohC-kU-Vyl"/>
                             <constraint firstItem="OPD-Pb-HIU" firstAttribute="centerX" secondItem="KR6-fs-t3z" secondAttribute="centerX" id="sGT-bz-NVD"/>
                             <constraint firstAttribute="centerX" secondItem="SXm-Ti-a4d" secondAttribute="centerX" id="srA-Fs-H4l"/>
                             <constraint firstItem="OPD-Pb-HIU" firstAttribute="top" secondItem="KR6-fs-t3z" secondAttribute="bottom" constant="8" id="tQn-OD-d3g"/>
                             <constraint firstItem="KkX-iz-M7r" firstAttribute="top" secondItem="rng-hc-q6j" secondAttribute="bottom" constant="15" id="vhq-t5-uBn"/>
+                            <constraint firstItem="8ae-1N-Du9" firstAttribute="centerX" secondItem="KkX-iz-M7r" secondAttribute="centerX" id="wtm-zs-eDh"/>
                             <constraint firstItem="G0m-ss-O2j" firstAttribute="leading" secondItem="SXm-Ti-a4d" secondAttribute="trailing" constant="40" id="zF0-pT-1o0"/>
                         </constraints>
                     </view>
@@ -88,6 +106,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="aveLabel" destination="X90-Gq-JOr" id="O96-Xb-qnn"/>
+                        <outlet property="enLabel" destination="wVr-Fo-Mi8" id="w99-cG-vJZ"/>
+                        <outlet property="exLabel" destination="rng-hc-q6j" id="td8-EC-hgc"/>
+                        <outlet property="maxLabel" destination="OPD-Pb-HIU" id="ZUw-iW-y0x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dn2-Mu-Rca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D6D-PT-Eg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1693" y="1488"/>
+            <point key="canvasLocation" x="-1698" y="1488"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IsV-m7-FGt">

@@ -9,7 +9,7 @@
 #import "GripAPIResponse.h"
 
 @implementation GripAPIResponse
-@synthesize succeed;
-@synthesize data;
-@synthesize error;
+//@synthesize succeed;
+//@synthesize data;
+//@synthesize error;
 @end

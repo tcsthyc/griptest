@@ -11,13 +11,14 @@
 
 @implementation User
 
-@dynamic username;
-@dynamic height;
-@dynamic sex;
-@dynamic age;
-@dynamic uid;
-@dynamic password;
-@dynamic weight;
-@dynamic body_fat_per;
+@synthesize username;
+@synthesize height;
+@synthesize sex;
+@synthesize age;
+@synthesize uid;
+@synthesize password;
+@synthesize weight;
+@synthesize body_fat_per;
+
 
 @end

@@ -10,15 +10,24 @@
 #import <CoreData/CoreData.h>
 
 
-@interface User : NSManagedObject
+//@interface User : NSManagedObject
+@interface User : NSObject
+
+typedef NS_ENUM (NSInteger, Sex){
+    male = 0,
+    female = 1,
+    other = 2
+};
 
 @property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSNumber * height;
-@property (nonatomic, retain) NSNumber * sex;
-@property (nonatomic, retain) NSNumber * age;
-@property (nonatomic, retain) NSNumber * uid;
+@property (nonatomic, readwrite) NSInteger height;
+@property (nonatomic, readwrite) Sex sex;
+@property (nonatomic, readwrite) NSInteger age;
+@property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) NSString * password;
-@property (nonatomic, retain) NSNumber * weight;
-@property (nonatomic, retain) NSNumber * body_fat_per;
+@property (nonatomic, readwrite) float  weight;
+@property (nonatomic, readwrite) float  body_fat_per;
+
+//-(NSDictionary *)addUserInfoToParams: (NSDictionary *)params;
 
 @end

@@ -9,6 +9,7 @@
 #import "StatViewController.h"
 #import "AFNetworking.h"
 #import "APIUtils.h"
+#import "UserUtils.h"
 
 #define BarColorBlue [UIColor colorWithRed:58 / 255.0 green:123 / 255.0 blue:195 / 255.0 alpha:1.0f]
 
@@ -145,15 +146,12 @@ OperationButton *btn;
 
 #pragma mark - request data & update ui
 -(void) requestDataOfDay: (NSDate *)date{
-    NSDictionary *params = @{@"date": [NSNumber numberWithDouble:date.timeIntervalSince1970],
-                             @"user": @"",
-                             @"pswd": @""
-                             };
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"date": [NSNumber numberWithDouble:date.timeIntervalSince1970]}];
+    [[[UserUtils alloc]init] addUserToParams:params];
     [self.httpManager GET:[APIUtils apiAddress:@"historicalData"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if([responseObject valueForKey:@"succeed"]){
             NSDictionary *data = [responseObject valueForKey:@"data"];
-            [self.barChart updateChartData:@[[data valueForKey:@"index"],[data valueForKey:@"middle"],[data valueForKey:@"ring"],[data valueForKey:@"little"]]];
-            [self updateLabelsWithData:data];
+            [self updateViewsWithData:data];
         }
         else{
             NSLog(@"internal error: %@",[responseObject valueForKey:@"error"]);
@@ -164,9 +162,26 @@ OperationButton *btn;
 //    [self.barChart updateChartData:@[@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30)]];
 }
 
-//TODO:update lables
--(void)updateLabelsWithData:(NSDictionary *)data{
+
+-(void)updateViewsWithData:(NSDictionary *)data{
+    [self.barChart updateChartData:@[[data valueForKey:@"index"],[data valueForKey:@"middle"],[data valueForKey:@"ring"],[data valueForKey:@"little"]]];
     
+    NSString *f_max = [data objectForKey:@"max"];
+    NSString *f_ex = [data objectForKey:@"explosive"];
+    NSString *f_en = [data objectForKey:@"endurance"];
+    NSString *f_ave = [data objectForKey:@"average"];
+    if(f_max!=nil){
+        self.maxLabel.text =f_max;
+    }
+    if(f_ex!=nil){
+        self.exLabel.text =f_ex;
+    }
+    if(f_en!=nil){
+        self.enLabel.text =f_en;
+    }
+    if(f_ave!=nil){
+        self.aveLabel.text=f_ave;
+    }
 }
 
 @end

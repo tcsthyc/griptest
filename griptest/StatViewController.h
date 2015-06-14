@@ -16,6 +16,10 @@
 
 @property (nonatomic, strong) THDatePickerViewController * datePicker;
 @property (nonatomic) IBOutlet PNBarChart *barChart;
+@property (weak, nonatomic) IBOutlet UILabel *maxLabel;
+@property (weak, nonatomic) IBOutlet UILabel *exLabel;
+@property (weak, nonatomic) IBOutlet UILabel *enLabel;
+@property (weak, nonatomic) IBOutlet UILabel *aveLabel;
 
 - (IBAction)calenderBtnClicked:(id)sender;
 

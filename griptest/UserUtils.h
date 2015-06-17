@@ -13,5 +13,5 @@
 
 @property(nonatomic,retain) User* user;
 -(void) addUserToParams: (NSDictionary *)params;
-
+-(BOOL) isUserLoggedIn;
 @end

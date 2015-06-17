@@ -7,6 +7,8 @@
 //
 
 #import "SignInPageViewController.h"
+#import "AFNetworking.h"
+#import "APIUtils.h"
 
 @interface SignInPageViewController ()
 @end
@@ -14,7 +16,8 @@
 @implementation SignInPageViewController
 
 UITextField *currentTextField;
-
+UITextField *nameTextField;
+UITextField *pswdTextField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,6 +60,30 @@ UITextField *currentTextField;
     currentTextField=textField;
 }
 
+-(void)loginClicked:(id)sender{
+    if (![self checkParams]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"用户名和密码不能为空！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+    else{
+        NSDictionary *params=@{@"username":nameTextField.text,@"password":pswdTextField.text};
+        AFHTTPRequestOperationManager *httpManager = [AFHTTPRequestOperationManager manager];
+        [httpManager POST:[APIUtils apiAddress:@"login"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您还没有注册吧" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }];
+    }
+    
+}
+
+-(BOOL)checkParams{
+    NSString *username = nameTextField.text;
+    NSString *pswd = pswdTextField.text;
+    return ![username isEqualToString:@""] && ![pswd isEqualToString:@""];
+}
+
 #pragma mark - table data
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -73,12 +100,14 @@ UITextField *currentTextField;
             cell.icon.image=[UIImage imageNamed:@"circle"];
             cell.textview.placeholder=@"昵称/手机";
             cell.textview.delegate=self;
+            nameTextField = cell.textview;
             break;
         case 1:
             cell.icon.image=[UIImage imageNamed:@"circle"];
             cell.textview.placeholder=@"密码";
             cell.textview.secureTextEntry=true;
             cell.textview.delegate=self;
+            pswdTextField = cell.textview;
             break;
             
         default:
@@ -104,4 +133,6 @@ UITextField *currentTextField;
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
 }
+
+
 @end

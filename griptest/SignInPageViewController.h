@@ -11,5 +11,6 @@
 #import "User.h"
 
 @interface SignInPageViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+- (IBAction)loginClicked:(id)sender;
 
 @end

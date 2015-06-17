@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UserUtils.h"
 
 @interface AppDelegate ()
             
@@ -50,7 +51,8 @@
 }
 
 -(BOOL)isLoggedIn{
-    return YES;
+    UserUtils *uu = [[UserUtils alloc]init];
+    return [uu isUserLoggedIn];
 }
 
 #pragma mark - Core Data stack

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InfoViewController : UIViewController
+@interface InfoViewController : UIViewController <UIWebViewDelegate>
 
 @property(nonatomic,readwrite) NSString *query;
 @property (weak, nonatomic) IBOutlet UIWebView *infoWebView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *statusIcon;
 
 @end

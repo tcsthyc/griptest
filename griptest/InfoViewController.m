@@ -17,12 +17,19 @@
 
 @synthesize query;
 @synthesize infoWebView;
+@synthesize statusIcon;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = query;
+    [self.infoWebView setDelegate:self];
+    
+    [self.statusIcon setHidesWhenStopped:YES];
+    [self.statusIcon startAnimating];
+    
     [self initWebView];
+    
     
 }
 
@@ -48,5 +55,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - webview protocol
+
+//- (void)webViewDidStartLoad:(UIWebView *)webView{
+//    [self.statusIcon startAnimating];
+//}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [self.statusIcon stopAnimating];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    [self.statusIcon stopAnimating];
+}
 
 @end

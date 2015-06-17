@@ -59,6 +59,10 @@ NSUserDefaults *userDefaults;
     
 }
 
+-(BOOL)isUserLoggedIn{
+    return self.user && self.user.username && ![self.user.username isEqualToString:@""];
+}
+
 -(void)addUserToParams:(NSMutableDictionary *)params{
     [params setValue:self.user.username forKey:@"username"];
     [params setValue:self.user.password forKey:@"pswd"];

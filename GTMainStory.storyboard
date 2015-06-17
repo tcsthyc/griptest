@@ -556,18 +556,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-Yg-MU7">
+                                <rect key="frame" x="150" y="242" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IfR-Yg-MU7" firstAttribute="centerY" secondItem="ZF3-5p-g0Y" secondAttribute="centerY" id="GqO-xi-7V9"/>
                             <constraint firstAttribute="centerY" secondItem="ZF3-5p-g0Y" secondAttribute="centerY" id="QgO-wD-kYR"/>
                             <constraint firstItem="ZF3-5p-g0Y" firstAttribute="height" secondItem="WIE-ZL-woI" secondAttribute="height" id="Qwt-e5-1YB"/>
                             <constraint firstItem="ZF3-5p-g0Y" firstAttribute="width" secondItem="WIE-ZL-woI" secondAttribute="width" id="il0-kj-uMc"/>
+                            <constraint firstItem="IfR-Yg-MU7" firstAttribute="centerX" secondItem="ZF3-5p-g0Y" secondAttribute="centerX" id="s7T-7t-Zl7"/>
                             <constraint firstAttribute="centerX" secondItem="ZF3-5p-g0Y" secondAttribute="centerX" id="tmI-1Q-eRS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xAa-8z-RCZ"/>
                     <connections>
                         <outlet property="infoWebView" destination="ZF3-5p-g0Y" id="gtL-G7-tgf"/>
+                        <outlet property="statusIcon" destination="IfR-Yg-MU7" id="2bM-PJ-oEQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ji6-8m-ajs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -598,6 +604,9 @@
                                         <integer key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginClicked:" destination="s86-eR-h4K" eventType="touchUpInside" id="yC1-le-qam"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Q6-QP-qAz">
                                 <rect key="frame" x="0.0" y="416" width="320" height="30"/>
@@ -1175,6 +1184,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bQn-EM-bfA"/>
+        <segue reference="dzK-Ne-ycp"/>
     </inferredMetricsTieBreakers>
 </document>

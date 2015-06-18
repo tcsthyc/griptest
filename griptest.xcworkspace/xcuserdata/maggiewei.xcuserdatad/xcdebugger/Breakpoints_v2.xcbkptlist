@@ -506,61 +506,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "griptest/SignInPageViewController.m"
-            timestampString = "456247944.902679"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-loginClicked:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "griptest/SignInPageViewController.m"
-            timestampString = "456247947.676306"
+            timestampString = "456327967.685823"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "-loginClicked:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[SignInPageViewController loginClicked:]_block_invoke"
-                  moduleName = "griptest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maggiewei/Desktop/xcodeProjects/griptest/griptest/SignInPageViewController.m"
-                  timestampString = "456249167.112183"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[SignInPageViewController loginClicked:]_block_invoke_2"
-                  moduleName = "griptest"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maggiewei/Desktop/xcodeProjects/griptest/griptest/SignInPageViewController.m"
-                  timestampString = "456249167.112397"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "88">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -570,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "griptest/SignInPageViewController.m"
-            timestampString = "456247948.666413"
+            timestampString = "456327967.685823"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-loginClicked:"
             landmarkType = "5">
          </BreakpointContent>

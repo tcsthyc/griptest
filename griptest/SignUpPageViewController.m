@@ -7,6 +7,9 @@
 //
 
 #import "SignUpPageViewController.h"
+#import "AFNetworking.h"
+#import "APIUtils.h"
+#import "User.h"
 
 @interface SignUpPageViewController ()
 
@@ -15,6 +18,12 @@
 @implementation SignUpPageViewController
 
 UITextField *currentTextField;
+UITextField *nameTextField;
+UITextField *phoneTextField;
+UITextField *pswdTextField;
+UITextField *pswd2TextField;
+AFHTTPRequestOperationManager *httpManager;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,6 +57,27 @@ UITextField *currentTextField;
     currentTextField=textField;
 }
 
+-(BOOL)checkParams{
+    if(![pswdTextField.text isEqualToString:pswd2TextField.text]){
+        return false;
+    }
+    
+    NSString *regex = @"^[1][358][0-9]{9}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    BOOL isPhoneNumValid = [predicate evaluateWithObject:phoneTextField.text];
+    if(!isPhoneNumValid){
+        return false;
+    }
+    
+    regex=@"\\w+";
+    BOOL isNameStrValid = [predicate evaluateWithObject:nameTextField.text];
+    if(!isNameStrValid){
+        return false;
+    }
+    
+    return true;
+}
+
 #pragma mark - table data
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -63,23 +93,27 @@ UITextField *currentTextField;
     
     switch (indexPath.row) {
         case 0:
-            cell.icon.image=[UIImage imageNamed:@"circle"];
+            cell.icon.image=[UIImage imageNamed:@"nickname"];
             cell.inputTextView.placeholder=@"昵称";
+            nameTextField = cell.inputTextView;
             break;
         case 1:
-            cell.icon.image=[UIImage imageNamed:@"circle"];
+            cell.icon.image=[UIImage imageNamed:@"phone"];
             cell.inputTextView.placeholder=@"手机";
             cell.inputTextView.keyboardType=UIKeyboardTypePhonePad;
+            phoneTextField = cell.inputTextView;
             break;
         case 2:
-            cell.icon.image=[UIImage imageNamed:@"circle"];
+            cell.icon.image=[UIImage imageNamed:@"lock-1"];
             cell.inputTextView.placeholder=@"密码";
             cell.inputTextView.secureTextEntry=true;
+            pswdTextField = cell.inputTextView;
             break;
         case 3:
-            cell.icon.image=[UIImage imageNamed:@"circle"];
+            cell.icon.image=[UIImage imageNamed:@"lock-2"];
             cell.inputTextView.placeholder=@"确认密码";
             cell.inputTextView.secureTextEntry=true;
+            pswd2TextField = cell.inputTextView;
             break;
             
         default:
@@ -118,7 +152,26 @@ UITextField *currentTextField;
 }
 */
 
+#pragma mark - click events
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)registerClicked:(id)sender {
+    __weak SignUpPageViewController *weakSelf=self;
+    NSDictionary *params = @{@"username":nameTextField.text,@"password":pswdTextField.text};
+    [httpManager POST:[APIUtils apiAddress:@"user/register"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([responseObject boolForKey:@"succeed"]){
+            id data = [responseObject valueForKey:@"data"];
+            User *user= [User alloc];
+            user.uid = [data stringForKey:@"id"];
+            user.username = nameTextField.text;
+            user.password = pswdTextField.text;
+            
+            //TODO push view
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //TODO alert
+    }];
 }
 @end

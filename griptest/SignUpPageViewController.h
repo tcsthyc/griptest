@@ -13,6 +13,7 @@
 @interface SignUpPageViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 - (IBAction)cancel:(id)sender;
+- (IBAction)registerClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *infoTable;
 
 @end

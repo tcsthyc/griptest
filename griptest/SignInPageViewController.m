@@ -9,6 +9,8 @@
 #import "SignInPageViewController.h"
 #import "AFNetworking.h"
 #import "APIUtils.h"
+#import "UserUtils.h"
+#import "TabBarRootViewController.h"
 
 @interface SignInPageViewController ()
 @end
@@ -61,6 +63,7 @@ UITextField *pswdTextField;
 }
 
 -(void)loginClicked:(id)sender{
+    __weak SignInPageViewController *weakSelf = self;
     if (![self checkParams]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"用户名和密码不能为空！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
@@ -68,8 +71,28 @@ UITextField *pswdTextField;
     else{
         NSDictionary *params=@{@"username":nameTextField.text,@"password":pswdTextField.text};
         AFHTTPRequestOperationManager *httpManager = [AFHTTPRequestOperationManager manager];
-        [httpManager POST:[APIUtils apiAddress:@"login"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //
+        [httpManager POST:[APIUtils apiAddress:@"user/login"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if([responseObject boolForKey:@"succeed"]){
+                id data = [responseObject valueForKey:@"data"];
+                User *user=[User alloc];
+                user.username = [data valueForKey:@"name"];
+                user.password = pswdTextField.text;
+                user.age = [data integerForKey:@"age"];
+                user.height = [data floatForKey:@"height"];
+                user.weight = [data floatForKey:@"weight"];
+                user.sex = [data integerForKey:@"sex"];
+                user.sex = [data floatForKey:@"bfp"];
+                
+                [UserUtils saveUser:user];
+                UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"GTMainStory" bundle: nil ];
+                TabBarRootViewController *tbvc = [storyboard instantiateViewControllerWithIdentifier:@"rootTabViewVC"];
+                [weakSelf presentViewController:tbvc animated:YES completion:nil];
+                
+            }
+            else{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您还没有注册吧" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alertView show];
+            }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您还没有注册吧" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alertView show];
@@ -97,13 +120,13 @@ UITextField *pswdTextField;
     LoginInfoTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"iconInputCell"];
     switch (indexPath.row) {
         case 0:
-            cell.icon.image=[UIImage imageNamed:@"circle"];
+            cell.icon.image=[UIImage imageNamed:@"me"];
             cell.textview.placeholder=@"昵称/手机";
             cell.textview.delegate=self;
             nameTextField = cell.textview;
             break;
         case 1:
-            cell.icon.image=[UIImage imageNamed:@"circle"];
+            cell.icon.image=[UIImage imageNamed:@"lock-1"];
             cell.textview.placeholder=@"密码";
             cell.textview.secureTextEntry=true;
             cell.textview.delegate=self;

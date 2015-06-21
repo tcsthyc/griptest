@@ -10,18 +10,28 @@
 #import "AFNetworking.h"
 #import "APIUtils.h"
 #import "User.h"
+#import "UserInfoModifyController.h"
+#import "QiniuSDK.h"
+#import "KLCPopup.h"
 
 @interface SignUpPageViewController ()
-
+@property (strong, nonatomic) ZCSAvatarCaptureController *avatarCaptureController;
+@property (strong,readwrite) UIImage *currentAvatarImage;
+@property (nonatomic,readwrite) User *currentUser;
 @end
 
 @implementation SignUpPageViewController
+@synthesize captureBtn;
+@synthesize avatarView;
+@synthesize registerBtn;
 
 UITextField *currentTextField;
 UITextField *nameTextField;
 UITextField *phoneTextField;
 UITextField *pswdTextField;
 UITextField *pswd2TextField;
+UILabel *progressLabel;
+KLCPopup* popup;
 AFHTTPRequestOperationManager *httpManager;
 
 
@@ -34,11 +44,73 @@ AFHTTPRequestOperationManager *httpManager;
     [self.view addGestureRecognizer:tap];
     currentTextField=nil;
     [self.infoTable registerNib:[UINib nibWithNibName:@"InputWithIconTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"inputWithIconCell"];
+    self.avatarCaptureController = [[ZCSAvatarCaptureController alloc] init];
+    self.avatarCaptureController.delegate = self;
+//    self.avatarCaptureController.image = [UIImage imageNamed:@"camera"];
+    [self.avatarView addSubview:self.avatarCaptureController.view];
+    [self initPopup];
+    [registerBtn setTitle:@"注册中" forState:UIControlStateDisabled];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)initPopup{
+    UIView* contentView = [[UIView alloc] init];
+    contentView.backgroundColor = [UIColor orangeColor];
+    contentView.frame = CGRectMake(0.0, 0.0, 200.0, 80.0);
+    progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 160, 40)];
+    [progressLabel setTextAlignment:NSTextAlignmentCenter];
+    [progressLabel setText:@"连接中……"];
+    [contentView addSubview:progressLabel];
+    
+    popup = [KLCPopup popupWithContentView:contentView
+                                  showType:KLCPopupShowTypeNone
+                               dismissType:KLCPopupDismissTypeNone
+                                  maskType:KLCPopupMaskTypeDimmed
+                  dismissOnBackgroundTouch:NO
+                     dismissOnContentTouch:NO];
+}
+
+- (void)uploadAvatar:(UIImage*)image{
+    __weak SignUpPageViewController* weakSelf=self;
+    NSString *token = @"从服务端SDK获取";
+    QNUploadManager *upManager = [[QNUploadManager alloc] init];
+    NSData *data = UIImageJPEGRepresentation(self.currentAvatarImage, 1.0) ;
+    
+    QNUploadOption *opt = [[QNUploadOption alloc] initWithProgessHandler:^(NSString *key, float percent) {
+        progressLabel.text = [NSString stringWithFormat:@"正在上传头像(%f)",percent];
+    }];
+    [upManager putData:data key:@"avatar" token:token
+              complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+                  [popup dismissPresentingPopup];
+                  //TODO set current user's avatar url
+                  UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"GTMainStory" bundle: nil ];
+                  UserInfoModifyController *vc=[storyboard instantiateViewControllerWithIdentifier:@"userInfoModifyVC"];
+                  vc.user = weakSelf.currentUser;
+                  [weakSelf presentViewController:vc animated:YES completion:nil];
+                  NSLog(@"%@", info);
+                  NSLog(@"%@", resp);
+              } option:opt];
+    
+}
+
+#pragma mark - avartar controller delegate
+- (void)imageSelected:(UIImage *)image {
+    [captureBtn setImage:image forState:UIControlStateNormal];
+    [captureBtn setImage:image forState:UIControlStateHighlighted];
+    captureBtn.imageView.layer.cornerRadius=40;
+    [avatarView setHidden:YES];
+    [captureBtn setHidden:NO];
+    self.currentAvatarImage = image;
+}
+
+- (void)imageSelectionCancelled {
+    [avatarView setHidden:YES];
+    [captureBtn setHidden:NO];
+    NSLog(@"imageSelectionCancelled");
 }
 
 #pragma mark - keyboard operation
@@ -158,20 +230,42 @@ AFHTTPRequestOperationManager *httpManager;
 }
 
 - (IBAction)registerClicked:(id)sender {
+    if(![self checkParams]){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请确保用户名和手机号有效！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
     __weak SignUpPageViewController *weakSelf=self;
+    
+    [self.registerBtn setEnabled:NO];
+    
     NSDictionary *params = @{@"username":nameTextField.text,@"password":pswdTextField.text};
     [httpManager POST:[APIUtils apiAddress:@"user/register"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if([responseObject boolForKey:@"succeed"]){
             id data = [responseObject valueForKey:@"data"];
-            User *user= [User alloc];
-            user.uid = [data stringForKey:@"id"];
-            user.username = nameTextField.text;
-            user.password = pswdTextField.text;
+            weakSelf.currentUser.uid = [data stringForKey:@"id"];
+            weakSelf.currentUser.username = nameTextField.text;
+            weakSelf.currentUser.password = pswdTextField.text;
             
-            //TODO push view
+            [popup showAtCenter:CGPointMake(0, 0) inView:weakSelf.view];
+            [weakSelf uploadAvatar:weakSelf.currentAvatarImage];
+            
+        }
+        else{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[responseObject stringForKey:@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+            [weakSelf.registerBtn setEnabled:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //TODO alert
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        [weakSelf.registerBtn setEnabled:YES];
     }];
+}
+
+- (IBAction)takePhotoClicked:(id)sender {
+    [captureBtn setHidden:YES];
+    [avatarView setHidden:NO];
+    [self.avatarCaptureController startCapture];
 }
 @end

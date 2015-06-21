@@ -20,26 +20,36 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - KLCPopup (1.0)
   - KNSemiModalViewController (0.3)
   - PNChart (HEAD based on 0.8.3):
     - UICountingLabel (~> 1.2.0)
+  - Qiniu (7.0.11):
+    - AFNetworking (~> 2.0)
   - SVPullToRefresh (HEAD based on 0.4.1)
   - THCalendarDatePicker (1.1.0):
     - KNSemiModalViewController (~> 0.3)
   - UICountingLabel (1.2.0)
+  - ZCSAvatarCapture (0.0.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - KLCPopup (~> 1.0)
   - PNChart (HEAD)
+  - Qiniu (~> 7.0)
   - SVPullToRefresh (HEAD)
   - THCalendarDatePicker (~> 1.1.0)
+  - ZCSAvatarCapture (~> 0.0.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
   PNChart: 8d81e061ec4845915184755d8da84f385ca1cb28
+  Qiniu: 70c3364afbc6993989edaf3da4a784c7d5ad296b
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   THCalendarDatePicker: 26aa8cd2d5897bbdfa2fa29564e386c06f878103
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
+  ZCSAvatarCapture: 89027b82f4486aa20b4f97650e177e4867e7600d
 
 COCOAPODS: 0.37.2

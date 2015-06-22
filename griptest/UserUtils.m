@@ -36,6 +36,7 @@ NSUserDefaults *userDefaults;
     if(newUser.height) [userDefaults setInteger:newUser.height forKey:@"height"];
     if(newUser.weight) [userDefaults setFloat:newUser.weight forKey:@"weight"];
     if(newUser.height) [userDefaults setFloat:newUser.body_fat_per forKey:@"body_fat_percentage"];
+    if(newUser.avatar) [userDefaults setObject:newUser.avatar forKey:@"avatar"];
     
     self.user = newUser;
     
@@ -54,6 +55,7 @@ NSUserDefaults *userDefaults;
     if(newUser.height) [userDefaults setInteger:newUser.height forKey:@"height"];
     if(newUser.weight) [userDefaults setFloat:newUser.weight forKey:@"weight"];
     if(newUser.height) [userDefaults setFloat:newUser.body_fat_per forKey:@"body_fat_percentage"];
+    if(newUser.avatar) [userDefaults setObject:newUser.avatar forKey:@"avatar"];
 }
 
 -(User *)readUser{
@@ -69,6 +71,7 @@ NSUserDefaults *userDefaults;
     user.height = [userDefaults integerForKey:@"height"];
     user.weight = [userDefaults floatForKey:@"weight"];
     user.body_fat_per = [userDefaults floatForKey:@"body_fat_percentage"];
+    user.avatar = [userDefaults stringForKey:@"avatar"];
     
     return self.user;
     
@@ -84,9 +87,9 @@ NSUserDefaults *userDefaults;
     user.height = [userDefaults integerForKey:@"height"];
     user.weight = [userDefaults floatForKey:@"weight"];
     user.body_fat_per = [userDefaults floatForKey:@"body_fat_percentage"];
+    user.avatar = [userDefaults stringForKey:@"avatar"];
     
     return user;
-    
 }
 
 -(BOOL)isUserLoggedIn{

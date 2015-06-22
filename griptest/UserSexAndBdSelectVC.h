@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UserSexAndBdSelectVC : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *iconMale;
+@property (weak, nonatomic) IBOutlet UIImageView *iconFemale;
+- (IBAction)ageChanged:(UISlider *)sender;
 
 @end

@@ -18,6 +18,7 @@
 @property (strong, nonatomic) ZCSAvatarCaptureController *avatarCaptureController;
 @property (strong,readwrite) UIImage *currentAvatarImage;
 @property (nonatomic,readwrite) User *currentUser;
+@property (nonatomic,readwrite) NSString *qnToken;
 @end
 
 @implementation SignUpPageViewController
@@ -33,7 +34,7 @@ UITextField *pswd2TextField;
 UILabel *progressLabel;
 KLCPopup* popup;
 AFHTTPRequestOperationManager *httpManager;
-
+UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -74,9 +75,44 @@ AFHTTPRequestOperationManager *httpManager;
                      dismissOnContentTouch:NO];
 }
 
-- (void)uploadAvatar:(UIImage*)image{
+- (void)showAlertView:(NSString*)msg{
+    if(alertView==nil){
+        alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+    else{
+        alertView.message=msg;
+        [alertView show];
+    }
+}
+
+-(void) getToken{
     __weak SignUpPageViewController* weakSelf=self;
-    NSString *token = @"从服务端SDK获取";
+    [httpManager GET:[APIUtils apiAddress:@"qiniu-token"]
+          parameters:nil
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 if([responseObject boolForKey:@"succeed"]){
+                     weakSelf.qnToken=[responseObject stringForKey:@"data"];
+                     [weakSelf uploadAvatar];
+                 }
+                 else{
+                     [popup dismissPresentingPopup];
+                     [weakSelf showAlertView:@"服务器错误，无法上传头像"];
+                     [weakSelf.registerBtn setEnabled:YES];
+                 }
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 [popup dismissPresentingPopup];
+                 [weakSelf showAlertView:@"服务器错误，无法上传头像"];
+                 [weakSelf.registerBtn setEnabled:YES];
+             }
+     ];
+}
+
+- (void)uploadAvatar{
+    __weak SignUpPageViewController* weakSelf=self;
+    
+    NSString *token = self.qnToken;
     QNUploadManager *upManager = [[QNUploadManager alloc] init];
     NSData *data = UIImageJPEGRepresentation(self.currentAvatarImage, 1.0) ;
     
@@ -86,8 +122,8 @@ AFHTTPRequestOperationManager *httpManager;
     [upManager putData:data key:@"avatar" token:token
               complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
                   [popup dismissPresentingPopup];
-                  //TODO set current user's avatar url
-                  UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"GTMainStory" bundle: nil ];
+//                  weakSelf.currentUser.avatar=
+                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"GTMainStory" bundle: nil ];
                   UserInfoModifyController *vc=[storyboard instantiateViewControllerWithIdentifier:@"userInfoModifyVC"];
                   vc.user = weakSelf.currentUser;
                   [weakSelf presentViewController:vc animated:YES completion:nil];
@@ -231,8 +267,7 @@ AFHTTPRequestOperationManager *httpManager;
 
 - (IBAction)registerClicked:(id)sender {
     if(![self checkParams]){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请确保用户名和手机号有效！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];
+        [self showAlertView:@"请确保用户名和手机号有效！"];
         return;
     }
     __weak SignUpPageViewController *weakSelf=self;
@@ -248,17 +283,15 @@ AFHTTPRequestOperationManager *httpManager;
             weakSelf.currentUser.password = pswdTextField.text;
             
             [popup showAtCenter:CGPointMake(0, 0) inView:weakSelf.view];
-            [weakSelf uploadAvatar:weakSelf.currentAvatarImage];
+            [weakSelf getToken];
             
         }
         else{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[responseObject stringForKey:@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alertView show];
+            [weakSelf showAlertView:[responseObject stringForKey:@"error"]];
             [weakSelf.registerBtn setEnabled:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];
+        [weakSelf showAlertView:@"网络错误"];
         [weakSelf.registerBtn setEnabled:YES];
     }];
 }

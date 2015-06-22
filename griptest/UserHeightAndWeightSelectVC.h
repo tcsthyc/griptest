@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *heightLabel;
 - (IBAction)weightValueChanged:(UISlider *)sender;
 - (IBAction)heightValueChanged:(UISlider *)sender;
+- (IBAction)infoComplete:(id)sender;
 
 @end

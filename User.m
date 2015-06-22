@@ -12,6 +12,7 @@
 @implementation User
 
 @synthesize username;
+@synthesize avatar;
 @synthesize height;
 @synthesize sex;
 @synthesize age;

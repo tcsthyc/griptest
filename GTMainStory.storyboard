@@ -984,8 +984,11 @@
                                 <color key="textColor" red="0.47058823529999999" green="0.4823529412" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="150" translatesAutoresizingMaskIntoConstraints="NO" id="gEp-9N-XEl">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="0.0" maxValue="150" translatesAutoresizingMaskIntoConstraints="NO" id="gEp-9N-XEl">
                                 <rect key="frame" x="156" y="390" width="132" height="31"/>
+                                <connections>
+                                    <action selector="ageChanged:" destination="KPf-gj-UeM" eventType="valueChanged" id="JY1-M3-itG"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1025,6 +1028,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hGf-hg-h9b"/>
+                    <connections>
+                        <outlet property="iconFemale" destination="bJd-Pr-L5o" id="YhW-l8-iAD"/>
+                        <outlet property="iconMale" destination="Vxc-84-dOn" id="9ts-ef-Fky"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwg-zq-e9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1148,6 +1155,9 @@
                                         <integer key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="infoComplete:" destination="KdG-Fa-acq" eventType="touchUpInside" id="gjE-Va-GWx"/>
+                                </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="SZc-vB-bCB">
                                 <rect key="frame" x="149" y="473" width="23" height="37"/>

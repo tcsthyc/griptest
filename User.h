@@ -19,15 +19,14 @@ typedef NS_ENUM (NSInteger, Sex){
     other = 2
 };
 
-@property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSString *username;
+@property (nonatomic, retain) NSString *avatar;
 @property (nonatomic, readwrite) NSInteger height;
 @property (nonatomic, readwrite) Sex sex;
 @property (nonatomic, readwrite) NSInteger age;
-@property (nonatomic, retain) NSString * uid;
-@property (nonatomic, retain) NSString * password;
+@property (nonatomic, retain) NSString *uid;
+@property (nonatomic, retain) NSString *password;
 @property (nonatomic, readwrite) float  weight;
 @property (nonatomic, readwrite) float  body_fat_per;
-
-//-(NSDictionary *)addUserInfoToParams: (NSDictionary *)params;
 
 @end

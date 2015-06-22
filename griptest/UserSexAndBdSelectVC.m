@@ -7,21 +7,34 @@
 //
 
 #import "UserSexAndBdSelectVC.h"
+#import "UserInfoModifyController.h"
 
 @interface UserSexAndBdSelectVC ()
 
 @end
 
 @implementation UserSexAndBdSelectVC
+@synthesize iconFemale;
+@synthesize iconMale;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(sexIconTapped:)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)sexIconTapped:(UIGestureRecognizer*)gestureRecognizer{
+    if(gestureRecognizer.view==iconMale){
+        ((UserInfoModifyController*)self.navigationController).user.sex = male;
+    }
+    else{
+        ((UserInfoModifyController*)self.navigationController).user.sex = female;
+    }
 }
 
 /*
@@ -34,4 +47,7 @@
 }
 */
 
+- (IBAction)ageChanged:(UISlider *)sender {
+    ((UserInfoModifyController*)self.navigationController).user.age = (int)sender.value;
+}
 @end

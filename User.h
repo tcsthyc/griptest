@@ -14,9 +14,9 @@
 @interface User : NSObject
 
 typedef NS_ENUM (NSInteger, Sex){
-    male = 0,
-    female = 1,
-    other = 2
+    male = 1,
+    female = 2,
+    other = 0
 };
 
 @property (nonatomic, retain) NSString *username;
@@ -28,5 +28,6 @@ typedef NS_ENUM (NSInteger, Sex){
 @property (nonatomic, retain) NSString *password;
 @property (nonatomic, readwrite) float  weight;
 @property (nonatomic, readwrite) float  body_fat_per;
+@property (nonatomic, retain) NSString *telephone;
 
 @end

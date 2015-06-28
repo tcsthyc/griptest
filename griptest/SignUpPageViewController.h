@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *captureBtn;
 @property (weak, nonatomic) IBOutlet UIView *avatarView;
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
+@property (weak, nonatomic) IBOutlet UILabel *hintLabel;
 
 @end

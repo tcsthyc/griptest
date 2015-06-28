@@ -21,9 +21,13 @@
 
 AFHTTPRequestOperationManager *httpManager;
 
+NSInteger height;
+float weight;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    height=170;
+    weight=60;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,29 +47,38 @@ AFHTTPRequestOperationManager *httpManager;
 
 - (IBAction)weightValueChanged:(UISlider *)sender {
     self.weightLabel.text=[NSString stringWithFormat:@"%d", (int)roundf(sender.value)];
-    ((UserInfoModifyController *)self.navigationController).user.weight=sender.value;
+    weight=sender.value;
 }
 
 - (IBAction)heightValueChanged:(UISlider *)sender {
     self.heightLabel.text=[NSString stringWithFormat:@"%d", (int)roundf(sender.value)];
-    ((UserInfoModifyController *)self.navigationController).user.height=sender.value;
+    height=sender.value;
 }
 
 - (IBAction)infoComplete:(id)sender {
     __weak UserHeightAndWeightSelectVC *weakSelf=self;
-    [httpManager POST:[APIUtils apiAddress:@"user/update"] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if([responseObject boolForKey:@"succeed"]){
+    User *user=[UserUtils readUser];
+    user.height = height;
+    user.weight = weight;
+    NSDictionary *params = @{@"username":user.username,
+                             @"password":user.password,
+                             @"height":@(user.height),
+                             @"weight":@(user.weight),
+                             @"age":@(user.age),
+                             @"sex":@(user.sex)};
+    [httpManager POST:[APIUtils apiAddress:@"user/update"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([[responseObject objectForKey:@"succeed"] boolValue]){
             [UserUtils saveUser:((UserInfoModifyController *)weakSelf.navigationController).user];
             UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"GTMainStory" bundle: nil ];
             TabBarRootViewController *tbvc = [storyboard instantiateViewControllerWithIdentifier:@"rootTabViewVC"];
             [weakSelf presentViewController:tbvc animated:YES completion:nil];
         }
         else{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[responseObject valueForKey:@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[responseObject valueForKey:@"error"] delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
             [alertView show];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
     }];
 }

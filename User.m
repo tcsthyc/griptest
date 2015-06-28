@@ -20,6 +20,6 @@
 @synthesize password;
 @synthesize weight;
 @synthesize body_fat_per;
-
+@synthesize telephone;
 
 @end

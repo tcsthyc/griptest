@@ -17,4 +17,5 @@
 
 +(User *)readUser;
 +(void)saveUser: (User*)newUser;
++(void)logout;
 @end

@@ -8,19 +8,25 @@
 
 #import "UserSexAndBdSelectVC.h"
 #import "UserInfoModifyController.h"
+#import "UserUtils.h"
 
 @interface UserSexAndBdSelectVC ()
 
 @end
 
 @implementation UserSexAndBdSelectVC
-@synthesize iconFemale;
-@synthesize iconMale;
+@synthesize btnFemale;
+@synthesize btnMale;
+@synthesize ageLabel;
+
+int age;
+Sex sex;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(sexIconTapped:)];
+    sex=male;
+    age=60;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,26 +34,26 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)sexIconTapped:(UIGestureRecognizer*)gestureRecognizer{
-    if(gestureRecognizer.view==iconMale){
-        ((UserInfoModifyController*)self.navigationController).user.sex = male;
-    }
-    else{
-        ((UserInfoModifyController*)self.navigationController).user.sex = female;
-    }
+- (IBAction)femaleSelected:(UIButton *)sender {
+    NSLog(@"female");
+    sex = female;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)maleSelected:(id)sender {
+    NSLog(@"male");
+    sex = male;
 }
-*/
 
 - (IBAction)ageChanged:(UISlider *)sender {
-    ((UserInfoModifyController*)self.navigationController).user.age = (int)sender.value;
+    age = (int)sender.value;
+    ageLabel.text = [NSString stringWithFormat:@"%d",(int)sender.value];
+}
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    User *user=[UserUtils readUser];
+    user.sex = sex;
+    user.age = age;
+    [UserUtils saveUser:user];
 }
 @end

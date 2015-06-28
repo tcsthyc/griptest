@@ -37,7 +37,8 @@ NSUserDefaults *userDefaults;
     if(newUser.weight) [userDefaults setFloat:newUser.weight forKey:@"weight"];
     if(newUser.height) [userDefaults setFloat:newUser.body_fat_per forKey:@"body_fat_percentage"];
     if(newUser.avatar) [userDefaults setObject:newUser.avatar forKey:@"avatar"];
-    
+    if(newUser.telephone) [userDefaults setObject:newUser.telephone forKey:@"telephone"];
+
     self.user = newUser;
     
 }
@@ -45,6 +46,9 @@ NSUserDefaults *userDefaults;
 +(void)saveUser:(User *)newUser{
     if(newUser==nil){
         return;
+    }
+    if(userDefaults==nil){
+        userDefaults = [NSUserDefaults standardUserDefaults];
     }
     
     if(newUser.username!=nil) [userDefaults setObject:newUser.username forKey:@"name"];
@@ -56,6 +60,7 @@ NSUserDefaults *userDefaults;
     if(newUser.weight) [userDefaults setFloat:newUser.weight forKey:@"weight"];
     if(newUser.height) [userDefaults setFloat:newUser.body_fat_per forKey:@"body_fat_percentage"];
     if(newUser.avatar) [userDefaults setObject:newUser.avatar forKey:@"avatar"];
+    if(newUser.telephone) [userDefaults setObject:newUser.telephone forKey:@"telephone"];
 }
 
 -(User *)readUser{
@@ -72,12 +77,17 @@ NSUserDefaults *userDefaults;
     user.weight = [userDefaults floatForKey:@"weight"];
     user.body_fat_per = [userDefaults floatForKey:@"body_fat_percentage"];
     user.avatar = [userDefaults stringForKey:@"avatar"];
+    user.telephone = [userDefaults stringForKey:@"telephone"];
     
     return self.user;
     
 }
 
 +(User *)readUser{
+    if(userDefaults==nil){
+        userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+    
     User *user=[User alloc];
     user.username = [userDefaults stringForKey:@"name"];
     user.password = [userDefaults stringForKey:@"password"];
@@ -88,8 +98,15 @@ NSUserDefaults *userDefaults;
     user.weight = [userDefaults floatForKey:@"weight"];
     user.body_fat_per = [userDefaults floatForKey:@"body_fat_percentage"];
     user.avatar = [userDefaults stringForKey:@"avatar"];
-    
+    user.telephone = [userDefaults stringForKey:@"telephone"];
     return user;
+}
+
++(void)logout{
+    if(userDefaults==nil){
+        userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+    [userDefaults setObject:@"" forKey:@"name"];
 }
 
 -(BOOL)isUserLoggedIn{

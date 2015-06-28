@@ -10,9 +10,10 @@
 #import "AFNetworking.h"
 #import "APIUtils.h"
 #import "User.h"
+#import "UserUtils.h"
 #import "UserInfoModifyController.h"
 #import "QiniuSDK.h"
-#import "KLCPopup.h"
+//#import "KLCPopup.h"
 
 @interface SignUpPageViewController ()
 @property (strong, nonatomic) ZCSAvatarCaptureController *avatarCaptureController;
@@ -22,9 +23,11 @@
 @end
 
 @implementation SignUpPageViewController
+
 @synthesize captureBtn;
 @synthesize avatarView;
 @synthesize registerBtn;
+@synthesize hintLabel;
 
 UITextField *currentTextField;
 UITextField *nameTextField;
@@ -32,24 +35,24 @@ UITextField *phoneTextField;
 UITextField *pswdTextField;
 UITextField *pswd2TextField;
 UILabel *progressLabel;
-KLCPopup* popup;
 AFHTTPRequestOperationManager *httpManager;
 UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    httpManager = [AFHTTPRequestOperationManager manager];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     currentTextField=nil;
+    self.currentUser = [User alloc];
     [self.infoTable registerNib:[UINib nibWithNibName:@"InputWithIconTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"inputWithIconCell"];
     self.avatarCaptureController = [[ZCSAvatarCaptureController alloc] init];
     self.avatarCaptureController.delegate = self;
 //    self.avatarCaptureController.image = [UIImage imageNamed:@"camera"];
     [self.avatarView addSubview:self.avatarCaptureController.view];
-    [self initPopup];
     [registerBtn setTitle:@"注册中" forState:UIControlStateDisabled];
 }
 
@@ -58,26 +61,19 @@ UIAlertView *alertView;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)initPopup{
-    UIView* contentView = [[UIView alloc] init];
-    contentView.backgroundColor = [UIColor orangeColor];
-    contentView.frame = CGRectMake(0.0, 0.0, 200.0, 80.0);
-    progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 160, 40)];
-    [progressLabel setTextAlignment:NSTextAlignmentCenter];
-    [progressLabel setText:@"连接中……"];
-    [contentView addSubview:progressLabel];
-    
-    popup = [KLCPopup popupWithContentView:contentView
-                                  showType:KLCPopupShowTypeNone
-                               dismissType:KLCPopupDismissTypeNone
-                                  maskType:KLCPopupMaskTypeDimmed
-                  dismissOnBackgroundTouch:NO
-                     dismissOnContentTouch:NO];
+-(void) showHintWithText: (NSString *)text{
+    self.hintLabel.text = text;
+    if([self.hintLabel  isHidden]){
+        [self.hintLabel setHidden:NO];
+    }
+}
+-(void) hideHint{
+    [self.hintLabel setHidden:YES];
 }
 
 - (void)showAlertView:(NSString*)msg{
     if(alertView==nil){
-        alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
         [alertView show];
     }
     else{
@@ -91,18 +87,18 @@ UIAlertView *alertView;
     [httpManager GET:[APIUtils apiAddress:@"qiniu-token"]
           parameters:nil
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                 if([responseObject boolForKey:@"succeed"]){
-                     weakSelf.qnToken=[responseObject stringForKey:@"data"];
+                 if([[responseObject objectForKey:@"succeed"] boolValue]){
+                     weakSelf.qnToken=[responseObject valueForKey:@"data"];
                      [weakSelf uploadAvatar];
                  }
                  else{
-                     [popup dismissPresentingPopup];
+                     [weakSelf hideHint];
                      [weakSelf showAlertView:@"服务器错误，无法上传头像"];
                      [weakSelf.registerBtn setEnabled:YES];
                  }
              }
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                 [popup dismissPresentingPopup];
+                 [weakSelf hideHint];
                  [weakSelf showAlertView:@"服务器错误，无法上传头像"];
                  [weakSelf.registerBtn setEnabled:YES];
              }
@@ -111,18 +107,20 @@ UIAlertView *alertView;
 
 - (void)uploadAvatar{
     __weak SignUpPageViewController* weakSelf=self;
+    [self showHintWithText:@"上传头像中……"];
     
     NSString *token = self.qnToken;
     QNUploadManager *upManager = [[QNUploadManager alloc] init];
     NSData *data = UIImageJPEGRepresentation(self.currentAvatarImage, 1.0) ;
     
     QNUploadOption *opt = [[QNUploadOption alloc] initWithProgessHandler:^(NSString *key, float percent) {
-        progressLabel.text = [NSString stringWithFormat:@"正在上传头像(%f)",percent];
+        progressLabel.text = [NSString stringWithFormat:@"正在上传头像: (%f)",percent];
     }];
     [upManager putData:data key:@"avatar" token:token
               complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-                  [popup dismissPresentingPopup];
-//                  weakSelf.currentUser.avatar=
+                  [weakSelf showHintWithText:@"上传完成！"];
+                  //TODO set avatar
+                  [UserUtils saveUser:weakSelf.currentUser];
                   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"GTMainStory" bundle: nil ];
                   UserInfoModifyController *vc=[storyboard instantiateViewControllerWithIdentifier:@"userInfoModifyVC"];
                   vc.user = weakSelf.currentUser;
@@ -178,6 +176,7 @@ UIAlertView *alertView;
     }
     
     regex=@"\\w+";
+    predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     BOOL isNameStrValid = [predicate evaluateWithObject:nameTextField.text];
     if(!isNameStrValid){
         return false;
@@ -267,32 +266,38 @@ UIAlertView *alertView;
 
 - (IBAction)registerClicked:(id)sender {
     if(![self checkParams]){
-        [self showAlertView:@"请确保用户名和手机号有效！"];
+        [self showAlertView:@"请确保用户名和手机号有效,且两次密码一致！"];
         return;
     }
     __weak SignUpPageViewController *weakSelf=self;
     
     [self.registerBtn setEnabled:NO];
+    [self showHintWithText:@"注册中……"];
     
-    NSDictionary *params = @{@"username":nameTextField.text,@"password":pswdTextField.text};
+    NSDictionary *params = @{@"username":nameTextField.text,@"password":pswdTextField.text,@"telephone":phoneTextField.text};
     [httpManager POST:[APIUtils apiAddress:@"user/register"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if([responseObject boolForKey:@"succeed"]){
-            id data = [responseObject valueForKey:@"data"];
-            weakSelf.currentUser.uid = [data stringForKey:@"id"];
+        NSLog(@"res: %@",responseObject);
+        if([[responseObject objectForKey:@"succeed"] boolValue]){
+            id data = [responseObject objectForKey:@"data"];
+            weakSelf.currentUser.uid = [[data objectForKey:@"id"] stringValue];
             weakSelf.currentUser.username = nameTextField.text;
             weakSelf.currentUser.password = pswdTextField.text;
-            
-            [popup showAtCenter:CGPointMake(0, 0) inView:weakSelf.view];
+            weakSelf.currentUser.telephone = phoneTextField.text;
+//            weakSelf.currentUser.avatar = [[data objectForKey:@"avatar"] stringValue];
             [weakSelf getToken];
             
         }
         else{
-            [weakSelf showAlertView:[responseObject stringForKey:@"error"]];
+            [weakSelf showAlertView:[responseObject valueForKey:@"error"]];
             [weakSelf.registerBtn setEnabled:YES];
+            [weakSelf hideHint];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"res: %@",error);
+
         [weakSelf showAlertView:@"网络错误"];
         [weakSelf.registerBtn setEnabled:YES];
+        [weakSelf hideHint];
     }];
 }
 

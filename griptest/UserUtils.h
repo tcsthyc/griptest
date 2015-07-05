@@ -12,10 +12,10 @@
 @interface UserUtils : NSObject
 
 @property(nonatomic,retain) User* user;
--(void) addUserToParams: (NSDictionary *)params;
--(BOOL) isUserLoggedIn;
++(void) addUser:(User *)user ToParams: (NSDictionary *)params;
 
 +(User *)readUser;
 +(void)saveUser: (User*)newUser;
 +(void)logout;
++(BOOL) isUserLoggedIn;
 @end

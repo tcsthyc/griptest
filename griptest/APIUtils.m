@@ -10,8 +10,8 @@
 
 @implementation APIUtils
 
-static NSString *base = @"http://192.168.31.193:8000/api/";
-//static NSString *base = @"http://121.40.219.210:8000/api/";
+//static NSString *base = @"http://192.168.31.193:8000/api/";
+static NSString *base = @"http://121.40.219.210:8000/api/";
 static NSString *version=@"";
 
 +(NSString*)apiAddress: (NSString*)name{

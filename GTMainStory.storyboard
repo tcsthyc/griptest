@@ -120,7 +120,7 @@
         <!--我-->
         <scene sceneID="lj6-ku-dXd">
             <objects>
-                <tableViewController id="KzG-kH-PCK" sceneMemberID="viewController">
+                <tableViewController id="KzG-kH-PCK" customClass="UserInfoTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Y0V-GI-TGb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="325"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,7 +217,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lF2-7t-aHq" id="Unj-ld-Dxn">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="%body fat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f84-kU-rHm">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="体脂比" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f84-kU-rHm">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -241,6 +241,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我" id="IDz-rx-YuN"/>
+                    <connections>
+                        <outlet property="ageLabel" destination="rNv-lE-3Tb" id="amN-Qd-N8i"/>
+                        <outlet property="bfpLabel" destination="SQm-85-jZD" id="I2E-y2-KcK"/>
+                        <outlet property="bmiLabel" destination="Dgv-yi-RuO" id="wh2-RG-vqB"/>
+                        <outlet property="heightLabel" destination="JZW-gZ-iIN" id="XBl-64-SvV"/>
+                        <outlet property="weightLabel" destination="emg-nA-DSi" id="F4l-E0-nUd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oO-qf-VA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,7 +256,7 @@
         <!--我-->
         <scene sceneID="xOb-Dq-Tqc">
             <objects>
-                <viewController id="Y4n-kr-nb4" sceneMemberID="viewController">
+                <viewController id="Y4n-kr-nb4" customClass="UserInfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ke6-RK-MCp"/>
                         <viewControllerLayoutGuide type="bottom" id="jEW-I8-neb"/>
@@ -261,7 +268,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFT-GB-ZhR">
                                 <rect key="frame" x="0.0" y="80" width="320" height="325"/>
                                 <connections>
-                                    <segue destination="KzG-kH-PCK" kind="embed" id="ZEZ-QK-0bZ"/>
+                                    <segue destination="KzG-kH-PCK" kind="embed" identifier="userInfoTableEmbededSegue" id="ZEZ-QK-0bZ"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNu-8W-jTt">
@@ -271,6 +278,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="userLogoutClicked:" destination="Y4n-kr-nb4" eventType="touchUpInside" id="HBH-JQ-lQT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -15,6 +15,8 @@
 		3219D76B1AA6DAC4009CB554 /* DataUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D76A1AA6DAC4009CB554 /* DataUnit.m */; };
 		3219D76E1AA6E078009CB554 /* BarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3219D76D1AA6E078009CB554 /* BarChart.m */; };
 		321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */; };
+		321F2E751B494E3300E2FF56 /* UserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321F2E741B494E3300E2FF56 /* UserInfoTableViewController.m */; };
+		321F2E781B4955C300E2FF56 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321F2E771B4955C300E2FF56 /* UserInfoViewController.m */; };
 		323DF73D1B36494C00DEC71A /* UserInfoModifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 323DF73C1B36494C00DEC71A /* UserInfoModifyController.m */; };
 		327F8ABD1B2895D70014080A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 327F8ABC1B2895D70014080A /* InfoViewController.m */; };
 		327F8AC31B28968F0014080A /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 327F8AC21B28968F0014080A /* SettingsTableViewController.m */; };
@@ -73,6 +75,10 @@
 		3219D76D1AA6E078009CB554 /* BarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChart.m; sourceTree = "<group>"; };
 		321DAD5A1AA8441E00DFEAB4 /* MeasureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		321DAD5B1AA8441E00DFEAB4 /* MeasureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
+		321F2E731B494E3300E2FF56 /* UserInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTableViewController.h; sourceTree = "<group>"; };
+		321F2E741B494E3300E2FF56 /* UserInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTableViewController.m; sourceTree = "<group>"; };
+		321F2E761B4955C300E2FF56 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		321F2E771B4955C300E2FF56 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		323DF73B1B36494C00DEC71A /* UserInfoModifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModifyController.h; sourceTree = "<group>"; };
 		323DF73C1B36494C00DEC71A /* UserInfoModifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModifyController.m; sourceTree = "<group>"; };
 		327F8ABB1B2895D70014080A /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
@@ -190,6 +196,10 @@
 				327F8AC21B28968F0014080A /* SettingsTableViewController.m */,
 				323DF73B1B36494C00DEC71A /* UserInfoModifyController.h */,
 				323DF73C1B36494C00DEC71A /* UserInfoModifyController.m */,
+				321F2E731B494E3300E2FF56 /* UserInfoTableViewController.h */,
+				321F2E741B494E3300E2FF56 /* UserInfoTableViewController.m */,
+				321F2E761B4955C300E2FF56 /* UserInfoViewController.h */,
+				321F2E771B4955C300E2FF56 /* UserInfoViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -455,6 +465,7 @@
 				37E327831A6A643F00D5137B /* User.m in Sources */,
 				3774EB611AAC3DFF008CF39D /* StatViewController.m in Sources */,
 				321DAD5C1AA8441E00DFEAB4 /* MeasureViewController.m in Sources */,
+				321F2E751B494E3300E2FF56 /* UserInfoTableViewController.m in Sources */,
 				3716F38B1A5BDB950010A564 /* AppDelegate.m in Sources */,
 				3219D7611AA6A685009CB554 /* UserSexAndBdSelectVC.m in Sources */,
 				323DF73D1B36494C00DEC71A /* UserInfoModifyController.m in Sources */,
@@ -474,6 +485,7 @@
 				3716F3881A5BDB950010A564 /* main.m in Sources */,
 				3219D76B1AA6DAC4009CB554 /* DataUnit.m in Sources */,
 				32C2200F1AA5A74100986142 /* InputWithIconTableViewCell.m in Sources */,
+				321F2E781B4955C300E2FF56 /* UserInfoViewController.m in Sources */,
 				327F8ABD1B2895D70014080A /* InfoViewController.m in Sources */,
 				32C220131AA5B68D00986142 /* CircleImageView.m in Sources */,
 			);

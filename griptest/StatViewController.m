@@ -147,7 +147,7 @@ OperationButton *btn;
 #pragma mark - request data & update ui
 -(void) requestDataOfDay: (NSDate *)date{
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"date": [NSNumber numberWithDouble:date.timeIntervalSince1970]}];
-    [[[UserUtils alloc]init] addUserToParams:params];
+    [UserUtils addUser:nil ToParams:params];
     [self.httpManager GET:[APIUtils apiAddress:@"historicalData"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if([responseObject valueForKey:@"succeed"]){
             NSDictionary *data = [responseObject valueForKey:@"data"];

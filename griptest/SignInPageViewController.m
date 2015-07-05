@@ -72,16 +72,18 @@ UITextField *pswdTextField;
         NSDictionary *params=@{@"username":nameTextField.text,@"password":pswdTextField.text};
         AFHTTPRequestOperationManager *httpManager = [AFHTTPRequestOperationManager manager];
         [httpManager POST:[APIUtils apiAddress:@"user/login"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            if([responseObject boolForKey:@"succeed"]){
-                id data = [responseObject valueForKey:@"data"];
+            if([[responseObject objectForKey:@"succeed"] boolValue]){
+                id data = [responseObject objectForKey:@"data"];
                 User *user=[User alloc];
-                user.username = [data valueForKey:@"name"];
+                user.username = [data objectForKey:@"name"];
                 user.password = pswdTextField.text;
-                user.age = [data integerForKey:@"age"];
-                user.height = [data floatForKey:@"height"];
-                user.weight = [data floatForKey:@"weight"];
-                user.sex = [data integerForKey:@"sex"];
-                user.sex = [data floatForKey:@"bfp"];
+                user.age = [[data objectForKey:@"age"]integerValue];
+                user.height = [[data objectForKey:@"height"] integerValue];
+                user.weight = [[data objectForKey:@"weight"] floatValue];
+                user.sex = [[data objectForKey:@"sex"] integerValue];
+                user.body_fat_per = [[data objectForKey:@"bfp"] floatValue];
+                user.telephone=[data objectForKey:@"telephone"];
+                user.avatar=[data objectForKey:@"avatar"];
                 
                 [UserUtils saveUser:user];
                 UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"GTMainStory" bundle: nil ];

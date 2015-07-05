@@ -51,7 +51,7 @@ static NSUserDefaults *userDefaults;
         userDefaults = [NSUserDefaults standardUserDefaults];
     }
     
-    if(newUser.username!=nil) [userDefaults setObject:newUser.username forKey:@"name"];
+    if(newUser.username!=nil) [userDefaults setObject:newUser.username forKey:@"username"];
     if(newUser.password!=nil) [userDefaults setObject:newUser.password forKey:@"password"];
     if(newUser.uid!=nil) [userDefaults setObject:newUser.uid forKey:@"uid"];
     if(newUser.age) [userDefaults setInteger:newUser.age forKey:@"age"];
@@ -89,7 +89,7 @@ static NSUserDefaults *userDefaults;
     }
     
     User *user=[User alloc];
-    user.username = [userDefaults stringForKey:@"name"];
+    user.username = [userDefaults stringForKey:@"username"];
     user.password = [userDefaults stringForKey:@"password"];
     user.uid = [userDefaults stringForKey:@"uid"];
     user.age = [userDefaults integerForKey:@"age"];
@@ -106,7 +106,7 @@ static NSUserDefaults *userDefaults;
     if(userDefaults==nil){
         userDefaults = [NSUserDefaults standardUserDefaults];
     }
-    [userDefaults setObject:@"" forKey:@"name"];
+    [userDefaults setObject:@"" forKey:@"username"];
 }
 
 //-(BOOL)isUserLoggedIn{
@@ -117,7 +117,7 @@ static NSUserDefaults *userDefaults;
     if(userDefaults==nil){
         userDefaults = [NSUserDefaults standardUserDefaults];
     }
-    NSString *uname=[userDefaults stringForKey:@"name"];
+    NSString *uname=[userDefaults stringForKey:@"username"];
     if(uname!=nil && ![uname isEqualToString:@""]){
         return YES;
     }

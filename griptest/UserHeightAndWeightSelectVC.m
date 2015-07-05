@@ -20,14 +20,13 @@
 @implementation UserHeightAndWeightSelectVC
 
 AFHTTPRequestOperationManager *httpManager;
-
-NSInteger height;
-float weight;
+User *finalUser;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    height=170;
-    weight=60;
+    finalUser=[UserUtils readUser];
+    finalUser.height=170;
+    finalUser.weight=60;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,28 +46,26 @@ float weight;
 
 - (IBAction)weightValueChanged:(UISlider *)sender {
     self.weightLabel.text=[NSString stringWithFormat:@"%d", (int)roundf(sender.value)];
-    weight=sender.value;
+    finalUser.weight=sender.value;
 }
 
 - (IBAction)heightValueChanged:(UISlider *)sender {
     self.heightLabel.text=[NSString stringWithFormat:@"%d", (int)roundf(sender.value)];
-    height=sender.value;
+    finalUser.height=sender.value;
 }
 
 - (IBAction)infoComplete:(id)sender {
     __weak UserHeightAndWeightSelectVC *weakSelf=self;
-    User *user=[UserUtils readUser];
-    user.height = height;
-    user.weight = weight;
-    NSDictionary *params = @{@"username":user.username,
-                             @"password":user.password,
-                             @"height":@(user.height),
-                             @"weight":@(user.weight),
-                             @"age":@(user.age),
-                             @"sex":@(user.sex)};
+   
+    NSDictionary *params = @{@"username":finalUser.username,
+                             @"password":finalUser.password,
+                             @"height":@(finalUser.height),
+                             @"weight":@(finalUser.weight),
+                             @"age":@(finalUser.age),
+                             @"sex":@(finalUser.sex)};
     [httpManager POST:[APIUtils apiAddress:@"user/update"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if([[responseObject objectForKey:@"succeed"] boolValue]){
-            [UserUtils saveUser:((UserInfoModifyController *)weakSelf.navigationController).user];
+            [UserUtils saveUser:finalUser];
             UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"GTMainStory" bundle: nil ];
             TabBarRootViewController *tbvc = [storyboard instantiateViewControllerWithIdentifier:@"rootTabViewVC"];
             [weakSelf presentViewController:tbvc animated:YES completion:nil];

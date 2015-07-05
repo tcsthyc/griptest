@@ -20,9 +20,11 @@
 @synthesize weightLabel;
 @synthesize bmiLabel;
 @synthesize bfpLabel;
+UIColor *headerFooterBgColor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    headerFooterBgColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     [self refreshLabels];
 }
 
@@ -36,14 +38,21 @@
         User *user=[UserUtils readUser];
         ageLabel.text=[NSString stringWithFormat:@"%ld岁",(long)user.age];
         heightLabel.text=[NSString stringWithFormat:@"%ld厘米",(long)user.height];
-        weightLabel.text=[NSString stringWithFormat:@"%ld厘米",(long)user.weight];
-        float bmi= user.weight/(user.height/100)/(user.height/100);
-        bmiLabel.text=[NSString stringWithFormat:@"%.2f",bmi];
-        if(user.body_fat_per == 0){
-            bmiLabel.text = @"未知";
+        weightLabel.text=[NSString stringWithFormat:@"%ld公斤",(long)user.weight];
+        
+        if(user.height!=0&&user.weight!=0){
+            float bmi= user.weight/(user.height/100.f)/(user.height/100.f);
+            bmiLabel.text=[NSString stringWithFormat:@"%.2f",bmi];
         }
         else{
-            bmiLabel.text = [NSString stringWithFormat:@"%.2f",user.body_fat_per];
+            bmiLabel.text=@"未知";
+        }
+        
+        if(user.body_fat_per == 0){
+            bfpLabel.text = @"未知";
+        }
+        else{
+            bfpLabel.text = [NSString stringWithFormat:@"%.2f",user.body_fat_per];
         }
     }
     else{
@@ -55,18 +64,25 @@
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    // Background color
+    view.tintColor = headerFooterBgColor;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+-(void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section{
+    view.tintColor = headerFooterBgColor;
 }
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 0;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
